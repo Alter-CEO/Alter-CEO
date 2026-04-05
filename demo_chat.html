@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alter CEO — Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A1A2E;--gold:#C9A84C;--gold-light:#E8C97A;--white:#FFFFFF;--gray:#666666;--gray-light:#F5F4F2;--border:rgba(26,26,46,0.1);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);padding:60px 48px;}
+.demo-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--navy);line-height:1.1;margin-bottom:12px;}
+.section-sub{font-size:.95rem;color:var(--gray);font-weight:300;margin-bottom:24px;line-height:1.7;}
+.disclaimer{font-size:.75rem;color:#aaa;font-style:italic;margin-bottom:36px;}
+.tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.tab{padding:10px 22px;border:1px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--gray);cursor:pointer;border-radius:2px;transition:all .2s;}
+.tab.on{background:var(--navy);border-color:var(--navy);color:#fff;}
+.case{display:none;grid-template-columns:480px 1fr;gap:40px;align-items:start;}
+.case.on{display:grid;}
+.chat-phone{background:#F0EEE9;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(26,26,46,.12);}
+.chat-hd{background:var(--navy);padding:16px 20px;display:flex;align-items:center;gap:12px;}
+.av{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);flex-shrink:0;}
+.chat-hd h4{font-size:.88rem;font-weight:500;color:#fff;}
+.chat-hd p{font-size:.72rem;color:var(--gold-light);font-weight:300;margin-top:1px;}
+.msgs{padding:20px 16px;max-height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.msgs::-webkit-scrollbar{width:4px;}
+.msgs::-webkit-scrollbar-thumb{background:rgba(26,26,46,.15);border-radius:2px;}
+.day{text-align:center;font-size:.68rem;color:#aaa;margin:4px 0;}
+.u{align-self:flex-end;max-width:78%;}
+.c{align-self:flex-start;max-width:78%;}
+.u .b{padding:10px 14px;border-radius:16px 16px 4px 16px;background:var(--navy);color:#fff;font-size:.88rem;line-height:1.6;font-weight:300;}
+.c .b{padding:10px 14px;border-radius:16px 16px 16px 4px;background:#fff;color:var(--navy);font-size:.88rem;line-height:1.6;font-weight:300;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.t{font-size:.65rem;color:#aaa;margin-top:3px;}
+.u .t{text-align:right;}
+.sender{font-size:.68rem;color:var(--gold);font-weight:500;letter-spacing:.04em;margin-bottom:3px;text-transform:uppercase;}
+.meta{padding:16px 20px;border-left:2px solid var(--gold);background:var(--gray-light);border-radius:0 8px 8px 0;}
+.meta h4{font-size:.8rem;font-weight:500;color:var(--navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
+.meta p{font-size:.85rem;color:var(--gray);font-weight:300;line-height:1.65;}
+@media(max-width:700px){.case.on{grid-template-columns:1fr;}body{padding:40px 20px;}}
+</style>
+</head>
+<body>
+<div class="demo-inner">
+  <span class="section-label">En acción</span>
+  <h2 class="section-title">Decisiones en tiempo real.</h2>
+  <p class="section-sub">Casos reales del equipo de un CEO. Así es lo que ven cuando lo consultan.</p>
+  <p class="disclaimer">Los nombres de personas y empresas han sido modificados para proteger la privacidad de las partes.</p>
+
+  <div class="tabs">
+    <button class="tab on" onclick="show(0)">Impago de cliente</button>
+    <button class="tab" onclick="show(1)">Problema con proveedor</button>
+  </div>
+
+  <!-- CASO 1 -->
+  <div class="case on" id="c0">
+    <div class="chat-phone">
+      <div class="chat-hd">
+        <div class="av">A</div>
+        <div><h4>Alter CEO</h4><p>Tu criterio, siempre disponible.</p></div>
+      </div>
+      <div class="msgs">
+        <div class="day">Hoy</div>
+        <div class="u"><div class="b">Hay una paciente que debe dinero y se niega a pagar. ¿Qué hago?</div><div class="t">16:02</div></div>
+        <div class="c"><div class="sender">Alter CEO</div><div class="b">¿Cuánto debe?</div><div class="t">16:02</div></div>
+        <div class="u"><div class="b">4.500€ aproximadamente.</div><div class="t">16:02</div></div>
+        <div class="c"><div class="sender">Alter CEO</div><div class="b">Manda el caso a un bufete sin mensualidad fija. Si no paga, no cobra nadie.<br><br>Considera ese dinero perdido y pasa al siguiente asunto.</div><div class="t">16:03</div></div>
+      </div>
+    </div>
+    <div class="meta">
+      <h4>Lo que muestra este caso</h4>
+      <p>El clon pide el dato que cambia la decisión antes de actuar. Con 4.500€ la respuesta es bufete sin riesgo para la empresa. Con 50€ habría sido distinta.</p>
+    </div>
+  </div>
+
+  <!-- CASO 2 -->
+  <div class="case" id="c1">
+    <div class="chat-phone">
+      <div class="chat-hd">
+        <div class="av">A</div>
+        <div><h4>Alter CEO</h4><p>Tu criterio, siempre disponible.</p></div>
+      </div>
+      <div class="msgs">
+        <div class="day">Hoy</div>
+        <div class="u"><div class="b">La sutura de un proveedor se afloja y pone en riesgo las cirugías.</div><div class="t">16:25</div></div>
+        <div class="c"><div class="sender">Alter CEO</div><div class="b">Llama al comercial hoy y le dices que necesitas solución antes de mañana. Si no la tienes, buscas stock alternativo en paralelo sin decirle nada.<br><br>¿Es OralTech, MedSupply o DentalPro?</div><div class="t">16:25</div></div>
+        <div class="u"><div class="b">Es OralTech.</div><div class="t">16:25</div></div>
+        <div class="c"><div class="sender">Alter CEO</div><div class="b">Llama a Carlos hoy. Le dices que la sutura falla y necesitas reposición o solución antes de mañana.<br><br>Si no resuelve en 24 horas, buscas en MedSupply sin decirle nada.</div><div class="t">16:26</div></div>
+      </div>
+    </div>
+    <div class="meta">
+      <h4>Lo que muestra este caso</h4>
+      <p>El clon conoce a los proveedores y a sus comerciales. No da una respuesta genérica — sabe con quién hablar, qué decir y qué hacer si no hay respuesta en 24 horas.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(i){
+  document.querySelectorAll('.case').forEach(function(el,j){el.classList.toggle('on',i===j);});
+  document.querySelectorAll('.tab').forEach(function(el,j){el.classList.toggle('on',i===j);});
+}
+</script>
+</body>
+</html>
