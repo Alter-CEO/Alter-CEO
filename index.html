@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Alter CEO digitaliza cómo piensa y decide un CEO. Su equipo toma mejores decisiones, solo. Alter CEO digitizes how a CEO thinks and decides. Your team makes better decisions, on their own.">
+<title>Alter CEO — Tu criterio, sin que estés.</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --navy: #1A1A2E;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gray: #666666;
+    --gray-light: #F5F4F2;
+    --border: rgba(26,26,46,0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--navy); }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    background: var(--gray-light);
+    border-radius: 4px;
+    padding: 3px;
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--gray);
+  }
+  .lang-btn.active { background: var(--navy); color: var(--white); }
+
+  /* ─── VERSIONS ─── */
+  .version { display: none; }
+  .version.active { display: block; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-compass {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  .hero-compass img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  .hero-compass .needle {
+    animation: needleSpin 8s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  @keyframes needleSpin {
+    0%   { transform: rotate(-15deg); }
+    100% { transform: rotate(15deg); }
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: var(--border);
+  }
+
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: block;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy);
+    max-width: 820px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.45s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--navy); }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 60px;
+  }
+
+  /* ─── PROBLEM ─── */
+  .problem { background: var(--gray-light); }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+  .problem-card {
+    background: var(--white);
+    padding: 52px 48px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .problem-card:hover::before { height: 100%; }
+
+  .problem-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .problem-card p { color: var(--gray); font-size: 0.97rem; line-height: 1.75; font-weight: 300; }
+
+  /* ─── WHAT IS ─── */
+  .whatis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .whatis-text p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .whatis-text p strong { color: var(--navy); font-weight: 500; }
+
+  .pillars { display: flex; flex-direction: column; }
+
+  .pillar {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .pillar:first-child { border-top: 1px solid var(--border); }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .pillar h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .pillar p { font-size: 0.92rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+
+  /* ─── HOW IT WORKS ─── */
+  .howitworks { background: var(--gray-light); }
+  .howitworks .section-title { color: var(--navy); }
+  .howitworks .section-label { color: var(--gold); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  .step {
+    background: rgba(26,26,46,0.04);
+    padding: 52px 40px;
+    transition: background 0.3s;
+  }
+  .step:hover { background: rgba(26,26,46,0.08); }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .step p { font-size: 0.92rem; color: var(--gray); line-height: 1.75; font-weight: 300; }
+
+  /* ─── BOARD TEASER ─── */
+  .board-teaser {
+    background: var(--navy);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .board-teaser .section-label { color: var(--gold); }
+  .board-teaser .section-title { color: var(--white); margin-bottom: 24px; }
+
+  .board-teaser-text {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 52px;
+  }
+
+  .board-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+
+  .role-tag {
+    padding: 8px 18px;
+    border: 1px solid rgba(201,168,76,0.3);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+  }
+  .role-tag:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .role-tag {
+    cursor: pointer;
+  }
+  .role-description {
+    width: 100%;
+    margin-top: 24px;
+    padding: 24px 32px;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid var(--gold);
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .role-description.active { display: block; }
+  .role-description h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .role-description p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+  /* ─── CTA FINAL ─── */
+  .cta-final {
+    background: var(--white);
+    padding: 120px 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-final .section-label { justify-content: center; display: block; text-align: center; margin-bottom: 20px; }
+
+  .cta-final h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .cta-final h2 em { font-style: italic; color: var(--gold); }
+
+  .cta-final p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 480px;
+    margin: 0 auto 52px;
+    line-height: 1.75;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); font-weight: 300; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav { padding: 16px 24px; }
+    .nav-link { display: none; }
+    section, .board-teaser, .cta-final { padding: 72px 24px; }
+    .hero { padding: 120px 24px 60px; }
+    .problem-grid, .whatis-grid, .steps { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Alter <span>CEO</span></a>
+  <div class="nav-right">
+    <a href="#es-que-es" class="nav-link es-el">Qué es</a>
+    <a href="#es-como-funciona" class="nav-link es-el">Cómo funciona</a>
+    <a href="#es-contacto" class="nav-link es-el">Contacto</a>
+    <a href="#en-what" class="nav-link en-el" style="display:none">What it is</a>
+    <a href="#en-how" class="nav-link en-el" style="display:none">How it works</a>
+    <a href="#en-contact" class="nav-link en-el" style="display:none">Contact</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════ -->
+<!--         VERSIÓN ESPAÑOLA          -->
+<!-- ══════════════════════════════════ -->
+<div class="version active" id="lang-es">
+
+  <!-- HERO ES -->
+  <section class="hero">
+    <div class="hero-compass">
+      <img src="compass_es.png" alt="">
+      <img src="compass_needle.png" class="needle" alt="">
+    </div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Alter CEO · Decisiones como tú las tomarías</span>
+      <h1>Tu criterio,<br><em>siempre disponible.</em></h1>
+      <p class="hero-sub">Alter CEO digitaliza cómo piensa y decide un CEO. El resultado: su equipo toma mejores decisiones, solo.</p>
+      <div class="hero-ctas">
+        <a href="#es-contacto" class="btn-primary">Hablar con nosotros</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problem">
+    <div class="section-inner">
+      <span class="section-label">El problema</span>
+      <h2 class="section-title">Dos problemas.<br>Una solución.</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <h3>Tú no puedes estar en todas partes.</h3>
+          <p>Cada vez que tu equipo necesita tu criterio y no estás, se detienen, improvisan o te interrumpen. Tu experiencia vale demasiado para quedar atrapada en tu cabeza.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Sin el CEO, las decisiones cuestan el doble.</h3>
+          <p>Tiempo perdido esperando validación. Errores por falta de criterio. Oportunidades que se escapan mientras alguien busca al jefe. Alter CEO resuelve eso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section id="es-que-es">
+    <div class="section-inner">
+      <span class="section-label">Qué es</span>
+      <h2 class="section-title">No es un chatbot.<br>Es tu alter ego.</h2>
+      <div class="whatis-grid">
+        <div class="whatis-text">
+          <p>Alter CEO captura cómo razona un CEO específico — sus criterios, sus límites, sus patrones — y lo pone disponible para su equipo en cualquier momento.</p>
+          <p>No responde con información genérica.<br><strong>Responde como lo haría él.</strong></p>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div>
+              <h4>Criterio real</h4>
+              <p>Construido a partir de decisiones reales, no de teoría. Cada respuesta refleja la lógica del CEO, no la de una IA genérica.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div>
+              <h4>Privacidad total</h4>
+              <p>El perfil es confidencial. Solo accede quien el CEO autoriza. Nada se comparte con terceros.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div>
+              <h4>Siempre disponible</h4>
+              <p>A las 11 de la noche antes de una reunión importante. Un domingo. Cuando el CEO está de viaje. El criterio no tiene horario.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="howitworks" id="es-como-funciona">
+    <div class="section-inner">
+      <span class="section-label">Proceso</span>
+      <h2 class="section-title">Tres pasos.<br>Sin complicaciones.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Captura</h3>
+          <p>Entrevistamos al CEO con un protocolo estructurado diseñado para extraer su forma real de decidir: qué le hace actuar, qué le frena, cómo gestiona personas, qué líneas nunca cruza.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Construcción</h3>
+          <p>Con esa información construimos su perfil decisional. Un sistema que entiende su lógica, su experiencia y sus criterios. No sus palabras — su razonamiento.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Acceso</h3>
+          <p>El equipo puede consultar al clon cuando lo necesite. Sin molestar al CEO. Sin esperar. Con la confianza de que la respuesta es coherente con lo que él haría.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOARD TEASER -->
+  <section class="board-teaser">
+    <div class="section-inner">
+      <span class="section-label">Alter CEO · Board</span>
+      <h2 class="section-title">Para cuando el criterio<br>que necesitas no es el de uno,<br><em style="color:var(--gold-light);font-style:italic;">sino el de todos.</em></h2>
+      <p class="board-teaser-text">Alter CEO · Board digitaliza el criterio decisional de todo el equipo directivo. Cada directivo tiene su propio clon. Y cuando la decisión lo requiere, la junta entera responde.</p>
+      <div class="board-roles" id="es-board-roles">
+        <span class="role-tag" onclick="showRole('es','ceo')">CEO</span>
+        <span class="role-tag" onclick="showRole('es','coo')">COO</span>
+        <span class="role-tag" onclick="showRole('es','cfo')">CFO</span>
+        <span class="role-tag" onclick="showRole('es','cto')">CTO</span>
+        <span class="role-tag" onclick="showRole('es','cmo')">CMO</span>
+        <span class="role-tag" onclick="showRole('es','chro')">CHRO</span>
+        <span class="role-tag" onclick="showRole('es','clo')">CLO</span>
+        <span class="role-tag" onclick="showRole('es','cio')">CIO</span>
+        <span class="role-tag" onclick="showRole('es','board')">+ Junta General</span>
+        <div class="role-description" id="es-role-desc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="es-contacto">
+    <div class="section-inner">
+      <span class="section-label">¿Listo para empezar?</span>
+      <h2>Una conversación de 20 minutos<br>es suficiente para saber<br><em>si tiene sentido.</em></h2>
+      <p>Sin compromisos. Sin presentaciones largas. Si encaja, lo sabremos enseguida.</p>
+      <div class="cta-buttons">
+        <a href="planes.html#es-contacto" class="btn-primary">Hablar con nosotros</a>
+        <a href="planes.html" class="btn-outline">Ver planes</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Tu criterio, siempre disponible.</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Aviso legal</a> · Todos los derechos reservados</span>
+  </footer>
+
+</div><!-- /lang-es -->
+
+
+<!-- ══════════════════════════════════ -->
+<!--         ENGLISH VERSION           -->
+<!-- ══════════════════════════════════ -->
+<div class="version" id="lang-en">
+
+  <!-- HERO EN -->
+  <section class="hero">
+    <div class="hero-compass">
+      <img src="compass_en.png" alt="">
+      <img src="compass_needle.png" class="needle" alt="">
+    </div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Alter CEO · Decisions, as you would make them</span>
+      <h1>Your judgment.<br><em>Always available.</em></h1>
+      <p class="hero-sub">Alter CEO digitizes how a CEO thinks and decides. The result: your team makes better decisions, on their own.</p>
+      <div class="hero-ctas">
+        <a href="#en-contact" class="btn-primary">Book a 20-min call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="section-inner">
+      <span class="section-label">The problem</span>
+      <h2 class="section-title">Two problems.<br>One solution.</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <h3>You can't be everywhere.</h3>
+          <p>Every time your team needs your judgment and you're not there, they pause, improvise, or interrupt you. Your experience is too valuable to stay locked inside your head.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Without the CEO, decisions cost twice as much.</h3>
+          <p>Time lost waiting for approval. Mistakes made without the right criteria. Opportunities missed while someone looks for the boss. Alter CEO solves that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS -->
+  <section id="en-what">
+    <div class="section-inner">
+      <span class="section-label">What it is</span>
+      <h2 class="section-title">Not a chatbot.<br>Your alter ego.</h2>
+      <div class="whatis-grid">
+        <div class="whatis-text">
+          <p>Alter CEO captures how a specific CEO reasons — their criteria, their limits, their patterns — and makes it available to their team at any time.</p>
+          <p>It doesn't answer with generic information.<br><strong>It answers the way they would.</strong></p>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div>
+              <h4>Real judgment</h4>
+              <p>Built from real decisions, not theory. Every response reflects the CEO's logic, not a generic AI's.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div>
+              <h4>Full privacy</h4>
+              <p>The profile is confidential. Only those the CEO authorizes can access it. Nothing is shared with third parties.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div>
+              <h4>Always on</h4>
+              <p>At 11pm before an important meeting. On a Sunday. When the CEO is traveling. Judgment doesn't have office hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="howitworks" id="en-how">
+    <div class="section-inner">
+      <span class="section-label">Process</span>
+      <h2 class="section-title">Three steps.<br>No complications.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Capture</h3>
+          <p>We interview the CEO using a structured protocol designed to extract their real decision-making process: what makes them act, what holds them back, how they manage people, what lines they never cross.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Build</h3>
+          <p>With that information, we build their decision profile. A system that understands their logic, their experience, and their criteria. Not their words — their reasoning.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Access</h3>
+          <p>The team can consult the clone whenever needed. Without bothering the CEO. Without waiting. With the confidence that the answer is consistent with what they would actually do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOARD TEASER -->
+  <section class="board-teaser">
+    <div class="section-inner">
+      <span class="section-label">Alter CEO · Board</span>
+      <h2 class="section-title">For when the judgment you need<br>isn't one person's —<br><em style="color:var(--gold-light);font-style:italic;">it's everyone's.</em></h2>
+      <p class="board-teaser-text">Alter CEO · Board digitizes the decision-making criteria of your entire leadership team. Each executive gets their own clone. And when the decision calls for it, the full board responds.</p>
+      <div class="board-roles" id="en-board-roles">
+        <span class="role-tag" onclick="showRole('en','ceo')">CEO</span>
+        <span class="role-tag" onclick="showRole('en','coo')">COO</span>
+        <span class="role-tag" onclick="showRole('en','cfo')">CFO</span>
+        <span class="role-tag" onclick="showRole('en','cto')">CTO</span>
+        <span class="role-tag" onclick="showRole('en','cmo')">CMO</span>
+        <span class="role-tag" onclick="showRole('en','chro')">CHRO</span>
+        <span class="role-tag" onclick="showRole('en','clo')">CLO</span>
+        <span class="role-tag" onclick="showRole('en','cio')">CIO</span>
+        <span class="role-tag" onclick="showRole('en','board')">+ Full Board</span>
+        <div class="role-description" id="en-role-desc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="en-contact">
+    <div class="section-inner">
+      <span class="section-label">Ready to start?</span>
+      <h2>A 20-minute conversation<br>is enough to know<br><em>if it makes sense.</em></h2>
+      <p>No commitment. No long presentations. If it fits, we'll know right away.</p>
+      <div class="cta-buttons">
+        <a href="planes.html#en-contact" class="btn-primary">Book a 20-min call</a>
+        <a href="planes.html" class="btn-outline">See plans</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Your judgment, always available.</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Legal notice</a> · All rights reserved</span>
+  </footer>
+
+</div><!-- /lang-en -->
+
+<script>
+  function setLang(lang, scroll) {
+    document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('.es-el').forEach(el => el.style.display = lang === 'es' ? '' : 'none');
+    document.querySelectorAll('.en-el').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    localStorage.setItem('alterceo_lang', lang);
+    document.documentElement.lang = lang;
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Al cargar la página, aplicar el idioma guardado o detectar por ancla
+  (function() {
+    const hash = window.location.hash;
+    const hashLang = hash.startsWith('#en-') ? 'en' : hash.startsWith('#es-') ? 'es' : null;
+    const saved = localStorage.getItem('alterceo_lang');
+    const browserLang = navigator.language?.startsWith('es') ? 'es' : 'en';
+    const lang = hashLang || saved || browserLang;
+    if (lang && lang !== 'es') setLang(lang, false);
+  })();
+</script>
+
+<script>
+  const roleData = {
+    es: {
+      ceo: {
+        title: "CEO — Director Ejecutivo",
+        text: "Criterio estratégico, umbrales de decisión, gestión del riesgo, patrones de liderazgo, líneas que nunca cruza."
+      },
+      coo: {
+        title: "COO — Director de Operaciones",
+        text: "Priorización con múltiples frentes abiertos, gestión de fallos operativos, criterio de delegación, mantenimiento del ritmo de ejecución."
+      },
+      cfo: {
+        title: "CFO — Director Financiero",
+        text: "Criterio de inversión, umbrales de riesgo financiero, evaluación de rentabilidad versus liquidez, criterio de veto financiero."
+      },
+      cto: {
+        title: "CTO — Director de Tecnología",
+        text: "Decisión entre construir o comprar, evaluación de deuda técnica, gestión de riesgo tecnológico, criterio de madurez de sistemas."
+      },
+      cmo: {
+        title: "CMO — Director de Marketing",
+        text: "Criterio de posicionamiento, selección de canales, evaluación de campañas antes de escalar, equilibrio entre marca y conversión."
+      },
+      chro: {
+        title: "CHRO — Director de Recursos Humanos",
+        text: "Evaluación de talento, apuesta por talento sin historial demostrado, gestión de conflictos de equipo, señales de falta de encaje."
+      },
+      clo: {
+        title: "CLO — Director Legal",
+        text: "Ponderación de riesgo legal versus velocidad de negocio, contratos que nunca firma sin revisión, cuándo frenar aunque el negocio quiera seguir."
+      },
+      cio: {
+        title: "CIO — Director de Sistemas de Información",
+        text: "Criterio de adopción tecnológica, gestión de proveedores críticos, umbrales de riesgo de seguridad, criterio de migración de sistemas."
+      },
+      board: {
+        title: "Junta General",
+        text: "Síntesis del criterio de todos los roles, identificación de consensos, detección de tensiones y puntos ciegos colectivos."
+      }
+    },
+    en: {
+      ceo: {
+        title: "CEO — Chief Executive Officer",
+        text: "Strategic judgment, decision thresholds, risk management, leadership patterns, lines never crossed."
+      },
+      coo: {
+        title: "COO — Chief Operating Officer",
+        text: "Prioritization with multiple open fronts, operational failure management, delegation criteria, execution pace."
+      },
+      cfo: {
+        title: "CFO — Chief Financial Officer",
+        text: "Investment criteria, financial risk thresholds, profitability versus liquidity, financial veto criteria."
+      },
+      cto: {
+        title: "CTO — Chief Technology Officer",
+        text: "Build or buy decisions, technical debt evaluation, technology risk management, system maturity criteria."
+      },
+      cmo: {
+        title: "CMO — Chief Marketing Officer",
+        text: "Positioning criteria, channel selection, campaign evaluation before scaling, brand versus conversion balance."
+      },
+      chro: {
+        title: "CHRO — Chief Human Resources Officer",
+        text: "Talent evaluation, criteria for unproven bets, team conflict management, signals of poor fit."
+      },
+      clo: {
+        title: "CLO — Chief Legal Officer",
+        text: "Legal risk versus business speed, contracts requiring exhaustive review, when to stop even if the business wants to move."
+      },
+      cio: {
+        title: "CIO — Chief Information Officer",
+        text: "Technology adoption criteria, critical vendor management, security risk thresholds, system migration criteria."
+      },
+      board: {
+        title: "Full Board",
+        text: "Synthesis of all roles' judgment, consensus identification, detection of tensions and collective blind spots."
+      }
+    }
+  };
+
+    function showRole(lang, role) {
+    const desc = document.getElementById(lang + '-role-desc');
+    const data = roleData[lang][role];
+    if (desc.dataset.active === role) {
+      desc.classList.remove('active');
+      desc.dataset.active = '';
+      return;
+    }
+    desc.innerHTML = '<h4>' + data.title + '</h4><p>' + data.text + '</p>';
+    desc.classList.add('active');
+    desc.dataset.active = role;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aviso legal y política de privacidad de Alter CEO. Legal notice and privacy policy.">
+<title>Aviso Legal — Alter CEO</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --navy: #1A1A2E;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gray: #666666;
+    --gray-light: #F5F4F2;
+    --border: rgba(26,26,46,0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-back {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--navy); }
+
+  /* ─── VERSIONS ─── */
+  .version { display: none; }
+  .version.active { display: block; }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    background: var(--gray-light);
+    border-radius: 4px;
+    padding: 3px;
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--gray);
+  }
+  .lang-btn.active { background: var(--navy); color: var(--white); }
+
+  /* ─── NAV RIGHT ─── */
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    padding: 160px 48px 80px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-header-inner { max-width: 1100px; margin: 0 auto; }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+  .breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--navy); }
+  .breadcrumb-sep { color: var(--gold); }
+
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .page-header h1 em { font-style: italic; color: var(--gold); }
+
+  .page-header-sub {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--gray);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+
+  /* ─── CONTENT ─── */
+  .legal-content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+  }
+
+  .legal-block {
+    margin-bottom: 64px;
+  }
+
+  .legal-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .legal-block h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .legal-block h3 {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-top: 32px;
+    margin-bottom: 10px;
+  }
+
+  .legal-block p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .legal-block p strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .legal-block ul {
+    list-style: none;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .legal-block ul li {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.7;
+    padding-left: 18px;
+    position: relative;
+  }
+  .legal-block ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .legal-date {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); font-weight: 300; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav { padding: 16px 24px; }
+    .page-header { padding: 120px 24px 60px; }
+    .legal-content { padding: 60px 24px 80px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Alter <span>CEO</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back es-el">← Volver</a>
+    <a href="index.html" class="nav-back en-el" style="display:none">← Back</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════ -->
+<!--         VERSIÓN ESPAÑOLA          -->
+<!-- ══════════════════════════════════ -->
+<div class="version active" id="lang-es">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Alter CEO</a>
+        <span class="breadcrumb-sep">·</span>
+        <span>Información legal</span>
+      </div>
+      <h1>Información legal.</h1>
+      <p class="page-header-sub">Última actualización: abril de 2026</p>
+    </div>
+  </div>
+
+  <div class="legal-content">
+
+    <!-- AVISO LEGAL -->
+    <div class="legal-block">
+      <span class="legal-label">01 — Aviso Legal</span>
+      <h2>Aviso Legal</h2>
+
+      <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos identificativos del titular de este sitio web.</p>
+
+      <h3>Titular</h3>
+      <p>
+        <strong>Nombre:</strong> Mariano Arranz Gómez<br>
+        <strong>NIF:</strong> 34631191-E<br>
+        <strong>Domicilio:</strong> Xinzo de Limia, Ourense, España<br>
+        <strong>Correo electrónico:</strong> alterceo@proton.me<br>
+        <strong>Sitio web:</strong> alter-ceo.com
+      </p>
+
+      <h3>Objeto</h3>
+      <p>El presente sitio web tiene como finalidad la presentación y comercialización del servicio Alter CEO, un sistema de decisión personalizado basado en la digitalización del criterio directivo.</p>
+
+      <h3>Propiedad intelectual</h3>
+      <p>Todos los contenidos de este sitio web —textos, imágenes, diseño, código y marca— son propiedad de Mariano Arranz Gómez o cuenta con las licencias correspondientes para su uso. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+
+      <h3>Responsabilidad</h3>
+      <p>El titular no se hace responsable de los daños derivados del uso del sitio web ni de la información contenida en él, en la medida en que dicha información pueda estar desactualizada o contenga errores involuntarios.</p>
+    </div>
+
+    <!-- POLÍTICA DE PRIVACIDAD -->
+    <div class="legal-block">
+      <span class="legal-label">02 — Privacidad</span>
+      <h2>Política de Privacidad</h2>
+
+      <p>En cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo (RGPD) y la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), se informa de la política de tratamiento de datos personales aplicable a este sitio web.</p>
+
+      <h3>Responsable del tratamiento</h3>
+      <p>
+        <strong>Identidad:</strong> Mariano Arranz Gómez<br>
+        <strong>NIF:</strong> 34631191-E<br>
+        <strong>Correo de contacto:</strong> alterceo@proton.me
+      </p>
+
+      <h3>Datos que se recogen</h3>
+      <p>A través del formulario de contacto de este sitio web se recogen los siguientes datos:</p>
+      <ul>
+        <li>Nombre</li>
+        <li>Empresa (opcional)</li>
+        <li>Dirección de correo electrónico</li>
+        <li>Plan de interés (opcional)</li>
+        <li>Mensaje libre (opcional)</li>
+      </ul>
+
+      <h3>Finalidad y base jurídica</h3>
+      <p>Los datos recogidos se utilizan exclusivamente para responder a las consultas recibidas y gestionar la relación comercial con los interesados. La base jurídica del tratamiento es el consentimiento del interesado, manifestado mediante el envío voluntario del formulario.</p>
+
+      <h3>Conservación de los datos</h3>
+      <p><strong>Datos del formulario de contacto:</strong> se conservan durante el tiempo necesario para atender la consulta y, en caso de establecerse relación contractual, durante el plazo legalmente exigido. Una vez cumplida la finalidad, los datos serán suprimidos.</p>
+      <p><strong>Datos del perfil decisional:</strong> cuando el servicio Alter CEO está activo, se elabora y conserva un perfil decisional del directivo entrevistado. Este perfil constituye el núcleo del servicio y se trata bajo base jurídica de ejecución contractual. El perfil se conserva durante la vigencia del contrato y durante un período adicional de <strong>2 años</strong> tras la última renovación o prestación del servicio, plazo tras el cual será eliminado o anonimizado de forma irreversible, salvo que el cliente solicite expresamente su eliminación anticipada o su mantenimiento para una futura reactivación del servicio.</p>
+
+      <h3>Destinatarios</h3>
+      <p>Los datos no se ceden a terceros, salvo por obligación legal. El formulario de contacto utiliza el servicio Formspree (formspree.io) para la recepción técnica de los mensajes. Formspree actúa como encargado del tratamiento bajo sus propias condiciones de privacidad y cumplimiento RGPD.</p>
+
+      <h3>Derechos del interesado</h3>
+      <p>El interesado puede ejercer en cualquier momento los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de sus datos, dirigiéndose por escrito a alterceo@proton.me. Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente.</p>
+
+      <h3>Cookies y rastreo</h3>
+      <p>Este sitio web no utiliza cookies de seguimiento, analítica ni publicidad. El único dato almacenado en el navegador del usuario es la preferencia de idioma seleccionada (español o inglés), mediante <em>localStorage</em>. Este dato no identifica al usuario, no se envía a ningún servidor y puede eliminarse borrando los datos del navegador.</p>
+
+      <p class="legal-date">Documento actualizado en abril de 2026.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Tu criterio, siempre disponible.</span>
+    <span class="footer-copy">© 2026 Alter CEO · Todos los derechos reservados</span>
+  </footer>
+
+</div><!-- /lang-es -->
+
+
+<!-- ══════════════════════════════════ -->
+<!--         ENGLISH VERSION           -->
+<!-- ══════════════════════════════════ -->
+<div class="version" id="lang-en">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Alter CEO</a>
+        <span class="breadcrumb-sep">·</span>
+        <span>Legal information</span>
+      </div>
+      <h1>Legal information.</h1>
+      <p class="page-header-sub">Last updated: April 2026</p>
+    </div>
+  </div>
+
+  <div class="legal-content">
+
+    <!-- LEGAL NOTICE -->
+    <div class="legal-block">
+      <span class="legal-label">01 — Legal notice</span>
+      <h2>Legal Notice</h2>
+
+      <p>In compliance with Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the following identifies the owner of this website.</p>
+
+      <h3>Owner</h3>
+      <p>
+        <strong>Name:</strong> Mariano Arranz Gómez<br>
+        <strong>Tax ID (NIF):</strong> 34631191-E<br>
+        <strong>Address:</strong> Xinzo de Limia, Ourense, Spain<br>
+        <strong>Email:</strong> alterceo@proton.me<br>
+        <strong>Website:</strong> alter-ceo.com
+      </p>
+
+      <h3>Purpose</h3>
+      <p>This website presents and commercializes the Alter CEO service, a personalized decision system based on the digitization of executive judgment.</p>
+
+      <h3>Intellectual property</h3>
+      <p>All content on this website — texts, images, design, code and brand — is the property of Mariano Arranz Gómez or is used under the appropriate licenses. Reproduction in whole or in part without express authorization is prohibited.</p>
+
+      <h3>Liability</h3>
+      <p>The owner is not liable for damages arising from the use of this website or the information it contains, to the extent that such information may be outdated or contain unintentional errors.</p>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <div class="legal-block">
+      <span class="legal-label">02 — Privacy</span>
+      <h2>Privacy Policy</h2>
+
+      <p>In compliance with EU Regulation 2016/679 (GDPR) and Spanish Organic Law 3/2018 on Personal Data Protection, the following describes the personal data processing policy applicable to this website.</p>
+
+      <h3>Data controller</h3>
+      <p>
+        <strong>Identity:</strong> Mariano Arranz Gómez<br>
+        <strong>Tax ID (NIF):</strong> 34631191-E<br>
+        <strong>Contact email:</strong> alterceo@proton.me
+      </p>
+
+      <h3>Data collected</h3>
+      <p>The contact form on this website collects the following data:</p>
+      <ul>
+        <li>Name</li>
+        <li>Company (optional)</li>
+        <li>Email address</li>
+        <li>Plan of interest (optional)</li>
+        <li>Free-text message (optional)</li>
+      </ul>
+
+      <h3>Purpose and legal basis</h3>
+      <p>The data collected is used solely to respond to enquiries and manage the commercial relationship with interested parties. The legal basis for processing is the user's consent, expressed by voluntarily submitting the contact form.</p>
+
+      <h3>Retention period</h3>
+      <p><strong>Contact form data:</strong> retained for as long as necessary to handle the enquiry and, where a contractual relationship is established, for the legally required period. Once the purpose has been fulfilled, data will be deleted.</p>
+      <p><strong>Decision profile data:</strong> when the Alter CEO service is active, a decision profile is built and retained for the interviewed executive. This profile is the core of the service and is processed under the legal basis of contract performance. The profile is retained for the duration of the contract and for an additional period of <strong>2 years</strong> after the last renewal or service provision, after which it will be deleted or irreversibly anonymized — unless the client explicitly requests early deletion or retention for a potential future reactivation of the service.</p>
+
+      <h3>Recipients</h3>
+      <p>Data is not shared with third parties except where required by law. The contact form uses Formspree (formspree.io) for technical message delivery. Formspree acts as a data processor under its own privacy terms and GDPR compliance framework.</p>
+
+      <h3>Your rights</h3>
+      <p>You may exercise your rights of access, rectification, erasure, objection, restriction of processing and data portability at any time by writing to alterceo@proton.me. You also have the right to lodge a complaint with the Spanish Data Protection Authority (aepd.es) if you believe the processing does not comply with applicable regulations.</p>
+
+      <h3>Cookies and tracking</h3>
+      <p>This website does not use tracking, analytics or advertising cookies. The only data stored in your browser is your selected language preference (Spanish or English), using <em>localStorage</em>. This data does not identify you, is not sent to any server, and can be removed by clearing your browser data.</p>
+
+      <p class="legal-date">Document last updated April 2026.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Your judgment, always available.</span>
+    <span class="footer-copy">© 2026 Alter CEO · All rights reserved</span>
+  </footer>
+
+</div><!-- /lang-en -->
+
+<script>
+  function setLang(lang, scroll) {
+    document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('.es-el').forEach(el => el.style.display = lang === 'es' ? '' : 'none');
+    document.querySelectorAll('.en-el').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    localStorage.setItem('alterceo_lang', lang);
+    document.documentElement.lang = lang;
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  (function() {
+    const hash = window.location.hash;
+    const hashLang = hash.startsWith('#en-') ? 'en' : hash.startsWith('#es-') ? 'es' : null;
+    const saved = localStorage.getItem('alterceo_lang');
+    const browserLang = navigator.language?.startsWith('es') ? 'es' : 'en';
+    const lang = hashLang || saved || browserLang;
+    if (lang && lang !== 'es') setLang(lang, false);
+  })();
+</script>
+
+</body>
+</html>
