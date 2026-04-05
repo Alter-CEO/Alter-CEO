@@ -866,6 +866,29 @@
 </div><!-- /lang-en -->
 
 <script>
+
+  function showCaseEs(i) {
+    document.querySelectorAll('.es-case').forEach(function(el, j) {
+      el.style.display = (i === j) ? 'grid' : 'none';
+    });
+    document.querySelectorAll('.demo-tab-es').forEach(function(el, j) {
+      el.style.background = (i === j) ? 'var(--navy)' : 'transparent';
+      el.style.color = (i === j) ? '#fff' : 'var(--gray)';
+      el.style.borderColor = (i === j) ? 'var(--navy)' : 'rgba(26,26,46,.1)';
+    });
+  }
+
+  function showCaseEn(i) {
+    document.querySelectorAll('.en-case').forEach(function(el, j) {
+      el.style.display = (i === j) ? 'grid' : 'none';
+    });
+    document.querySelectorAll('.demo-tab-en').forEach(function(el, j) {
+      el.style.background = (i === j) ? 'var(--navy)' : 'transparent';
+      el.style.color = (i === j) ? '#fff' : 'var(--gray)';
+      el.style.borderColor = (i === j) ? 'var(--navy)' : 'rgba(26,26,46,.1)';
+    });
+  }
+
   function setLang(lang, scroll) {
     document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
