@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Alter CEO digitaliza cómo piensa y decide un CEO. Su equipo toma mejores decisiones, solo. Alter CEO digitizes how a CEO thinks and decides. Your team makes better decisions, on their own.">
 <title>Alter CEO — Tu criterio, sin que estés.</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -263,25 +264,7 @@
   }
   .problem-card p { color: var(--gray); font-size: 0.97rem; line-height: 1.75; font-weight: 300; margin-bottom: 10px; }
   .problem-card p:last-child { margin-bottom: 0; }
-  .problem-fact {
-    color: #888;
-    font-size: 0.88rem;
-    line-height: 1.65;
-    font-weight: 300;
-    margin-bottom: 8px;
-    padding-left: 20px;
-    border-left: 1.5px solid var(--border);
-  }
-  .problem-punch {
-    color: #C9A84C !important;
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.4;
-    margin-top: 28px;
-    margin-bottom: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-  }
+  .problem-fact { color: #888; font-size: 0.88rem; line-height: 1.65; font-weight: 300; margin-bottom: 8px; padding-left: 20px; border-left: 1.5px solid var(--border); }
 
   /* ─── WHAT IS ─── */
   .whatis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -327,25 +310,25 @@
   .pillar p { font-size: 0.92rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
 
   /* ─── HOW IT WORKS ─── */
-  .howitworks { background: var(--navy); }
-  .howitworks .section-title { color: var(--white); }
+  .howitworks { background: var(--gray-light); }
+  .howitworks .section-title { color: var(--navy); }
   .howitworks .section-label { color: var(--gold); }
 
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
   .step {
-    background: rgba(255,255,255,0.04);
+    background: rgba(26,26,46,0.04);
     padding: 52px 40px;
     transition: background 0.3s;
   }
-  .step:hover { background: rgba(255,255,255,0.07); }
+  .step:hover { background: rgba(26,26,46,0.08); }
 
   .step-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 300;
     color: var(--gold);
-    opacity: 0.4;
+    opacity: 0.5;
     line-height: 1;
     margin-bottom: 24px;
   }
@@ -354,10 +337,10 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--navy);
     margin-bottom: 16px;
   }
-  .step p { font-size: 0.92rem; color: rgba(255,255,255,0.55); line-height: 1.75; font-weight: 300; }
+  .step p { font-size: 0.92rem; color: var(--gray); line-height: 1.75; font-weight: 300; }
 
   /* ─── BOARD TEASER ─── */
   .board-teaser {
@@ -365,14 +348,6 @@
     padding: 100px 48px;
     position: relative;
     overflow: hidden;
-  }
-  .board-teaser::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
   }
 
   .board-teaser .section-label { color: var(--gold); }
@@ -458,13 +433,6 @@
     padding: 120px 48px;
     text-align: center;
     position: relative;
-  }
-  .cta-final::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 1px; height: 60px;
-    background: var(--border);
   }
 
   .cta-final .section-label { justify-content: center; display: block; text-align: center; margin-bottom: 20px; }
@@ -596,14 +564,14 @@
           <p class="problem-fact">Cada vez que tu equipo necesita tu criterio y no estás, se detienen.</p>
           <p class="problem-fact">Improvisan.</p>
           <p class="problem-fact">O te interrumpen.</p>
-          <p class="problem-punch" style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Tu experiencia vale demasiado para quedar atrapada en tu cabeza.</p>
+          <p style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Tu experiencia vale demasiado para quedar atrapada en tu cabeza.</p>
         </div>
         <div class="problem-card">
           <h3>Decidir sin el CEO tiene un coste.</h3>
           <p class="problem-fact">Tiempo perdido esperando validación.</p>
           <p class="problem-fact">Errores por falta de criterio.</p>
           <p class="problem-fact">Oportunidades que se escapan mientras alguien busca al jefe.</p>
-          <p class="problem-punch" style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Tu equipo no puede tomar decisiones a ciegas indefinidamente.</p>
+          <p style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Tu equipo no puede tomar decisiones a ciegas indefinidamente.</p>
         </div>
       </div>
       <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--navy);margin-top:48px;font-style:italic;">Alter CEO resuelve eso.</p>
@@ -709,7 +677,7 @@
 
   <footer>
     <span class="footer-brand">Alter <span>CEO</span> · Tu criterio, siempre disponible.</span>
-    <span class="footer-copy">© 2025 Alter CEO · Todos los derechos reservados</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Aviso legal</a> · Todos los derechos reservados</span>
   </footer>
 
 </div><!-- /lang-es -->
@@ -731,7 +699,7 @@
       <h1>Your judgment.<br><em>Always available.</em></h1>
       <p class="hero-sub">Alter CEO digitizes how a CEO thinks and decides. The result: your team makes better decisions, on their own.</p>
       <div class="hero-ctas">
-        <a href="#en-contact" class="btn-primary">Talk to us</a>
+        <a href="#en-contact" class="btn-primary">Book a 20-min call</a>
       </div>
     </div>
   </section>
@@ -747,14 +715,14 @@
           <p class="problem-fact">When you're not there, they stop.</p>
           <p class="problem-fact">They guess.</p>
           <p class="problem-fact">Or they interrupt you.</p>
-          <p class="problem-punch" style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Your experience is too valuable to stay locked inside your head.</p>
+          <p style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Your experience is too valuable to stay locked inside your head.</p>
         </div>
         <div class="problem-card">
           <h3>Deciding without the CEO has a cost.</h3>
           <p class="problem-fact">Time lost waiting for approval.</p>
           <p class="problem-fact">Mistakes made without clear criteria.</p>
           <p class="problem-fact">Opportunities gone while someone looks for the boss.</p>
-          <p class="problem-punch" style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Your team can't make decisions in the dark indefinitely.</p>
+          <p style="color:#C9A84C;font-size:1rem;font-weight:500;font-family:'DM Sans',sans-serif;font-style:normal;margin-top:24px;line-height:1.6;">Your team can't make decisions in the dark indefinitely.</p>
         </div>
       </div>
       <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--navy);margin-top:48px;font-style:italic;">Alter CEO solves that.</p>
@@ -852,7 +820,7 @@
       <h2>A 20-minute conversation<br>is enough to know<br><em>if it makes sense.</em></h2>
       <p>No commitment. No long presentations. If it fits, we'll know right away.</p>
       <div class="cta-buttons">
-        <a href="planes.html#en-contact" class="btn-primary">Talk to us</a>
+        <a href="planes.html#en-contact" class="btn-primary">Book a 20-min call</a>
         <a href="planes.html" class="btn-outline">See plans</a>
       </div>
     </div>
@@ -860,22 +828,33 @@
 
   <footer>
     <span class="footer-brand">Alter <span>CEO</span> · Your judgment, always available.</span>
-    <span class="footer-copy">© 2025 Alter CEO · All rights reserved</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Legal notice</a> · All rights reserved</span>
   </footer>
 
 </div><!-- /lang-en -->
 
 <script>
-  function setLang(lang) {
+  function setLang(lang, scroll) {
     document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('lang-' + lang).classList.add('active');
     document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-    // toggle nav links
     document.querySelectorAll('.es-el').forEach(el => el.style.display = lang === 'es' ? '' : 'none');
     document.querySelectorAll('.en-el').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    localStorage.setItem('alterceo_lang', lang);
+    document.documentElement.lang = lang;
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Al cargar la página, aplicar el idioma guardado o detectar por ancla
+  (function() {
+    const hash = window.location.hash;
+    const hashLang = hash.startsWith('#en-') ? 'en' : hash.startsWith('#es-') ? 'es' : null;
+    const saved = localStorage.getItem('alterceo_lang');
+    const browserLang = navigator.language?.startsWith('es') ? 'es' : 'en';
+    const lang = hashLang || saved || browserLang;
+    if (lang && lang !== 'es') setLang(lang, false);
+  })();
 </script>
 
 <script>
@@ -974,4 +953,3 @@
 
 </body>
 </html>
-
