@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planes de Alter CEO. Desde 3.000€ de instalación. Sin letra pequeña. Alter CEO plans. From €3,000 installation. No fine print.">
+<title>Planes — Alter CEO</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --navy: #1A1A2E;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gray: #666666;
+    --gray-light: #F5F4F2;
+    --border: rgba(26,26,46,0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+
+  .nav-link {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--navy); }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    background: var(--gray-light);
+    border-radius: 4px;
+    padding: 3px;
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--gray);
+  }
+  .lang-btn.active { background: var(--navy); color: var(--white); }
+
+  /* ─── VERSIONS ─── */
+  .version { display: none; }
+  .version.active { display: block; }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    padding: 160px 48px 80px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .page-header-inner { max-width: 1100px; margin: 0 auto; }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+  .breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--navy); }
+  .breadcrumb-sep { color: var(--gold); }
+
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .page-header h1 em { font-style: italic; color: var(--gold); }
+
+  .page-header-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 520px;
+    line-height: 1.75;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 52px;
+    line-height: 1.7;
+  }
+
+  /* ─── PRICING NOTE ─── */
+  .pricing-note {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 52px;
+    font-weight: 300;
+    padding: 20px 24px;
+    border-left: 3px solid var(--gold);
+    background: var(--gray-light);
+  }
+
+  /* ─── PLANS GRID ─── */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .plan-card {
+    background: var(--gray-light);
+    padding: 44px 36px;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .plan-card:hover { background: #EEECEA; }
+  .plan-card.featured { background: var(--navy); }
+
+  .plan-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 4px 10px;
+    margin-bottom: 20px;
+  }
+
+  .plan-name {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .plan-card.featured .plan-name { color: var(--gold-light); }
+
+  .plan-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .plan-card.featured .plan-price { color: var(--white); }
+
+  .plan-period {
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 28px;
+    display: block;
+  }
+  .plan-card.featured .plan-period { color: rgba(255,255,255,0.5); }
+
+  .plan-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 28px;
+    font-weight: 300;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .plan-card.featured .plan-desc { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.1); }
+
+  .plan-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .plan-includes li {
+    font-size: 0.86rem;
+    color: var(--gray);
+    font-weight: 300;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .plan-includes li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+  .plan-card.featured .plan-includes li { color: rgba(255,255,255,0.65); }
+  .plan-card.featured .plan-includes li::before { color: var(--gold-light); }
+
+  /* ─── PLAN BOTTOM ROW ─── */
+  .plan-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 80px;
+  }
+
+  .plan-card-wide {
+    background: var(--gray-light);
+    padding: 44px 36px;
+    transition: background 0.3s;
+  }
+  .plan-card-wide:hover { background: #EEECEA; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 80px 0;
+  }
+
+  /* ─── BOARD ─── */
+  .board-section { background: var(--navy); }
+  .board-section .section-title { color: var(--white); }
+  .board-section .section-label { color: var(--teal); }
+  .board-section .section-subtitle { color: rgba(255,255,255,0.55); }
+  .board-section .pricing-note { background: rgba(255,255,255,0.05); border-left-color: var(--teal); color: rgba(255,255,255,0.5); }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 48px;
+  }
+
+  .board-card {
+    background: rgba(255,255,255,0.05);
+    padding: 44px 36px;
+    transition: background 0.3s;
+  }
+  .board-card:hover { background: rgba(255,255,255,0.08); }
+  .board-card.featured-b { background: rgba(42,128,128,0.18); border: 1px solid rgba(42,128,128,0.4); }
+
+  .board-card .plan-name { color: var(--gold-light); }
+  .board-card .plan-price { color: var(--white); }
+  .board-card .plan-period { color: rgba(255,255,255,0.4); }
+  .board-card .plan-desc { color: rgba(255,255,255,0.55); border-bottom-color: rgba(255,255,255,0.1); }
+  .board-card .plan-includes li { color: rgba(255,255,255,0.6); }
+  .board-card .plan-includes li::before { color: var(--gold-light); }
+
+  /* ─── TABLE ─── */
+  .table-wrap { overflow-x: auto; }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .compare-table th {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .compare-table td {
+    padding: 16px 20px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .compare-table td:first-child { color: rgba(255,255,255,0.9); font-weight: 400; }
+
+  /* ─── FAQ ─── */
+  .faq-section { background: var(--gray-light); }
+
+  .faq-list { display: flex; flex-direction: column; max-width: 780px; }
+
+  .faq-item { border-bottom: 1px solid var(--border); }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 28px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    position: relative;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: all 0.3s;
+  }
+  .faq-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+  .faq-icon::after { width: 1px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); }
+  .faq-item.open .faq-icon::after { opacity: 0; }
+
+  .faq-a {
+    display: none;
+    padding: 0 0 24px;
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ─── CTA FINAL ─── */
+  .cta-final {
+    text-align: center;
+    padding: 120px 48px;
+    position: relative;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 60px;
+    background: var(--border);
+  }
+
+  .cta-final h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .cta-final h2 em { font-style: italic; color: var(--gold); }
+
+  .cta-final p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 440px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 48px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--navy); }
+
+  /* ─── CONTACT FORM ─── */
+  .contact-section { background: var(--gray-light); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .contact-text p {
+    font-size: 1rem;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .contact-detail {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--navy);
+  }
+
+  .form-group { margin-bottom: 24px; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 300;
+    color: var(--navy);
+    background: transparent;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold); }
+  .form-group textarea { resize: none; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 18px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-note { font-size: 0.8rem; color: var(--gray); margin-top: 12px; text-align: center; font-weight: 300; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; }
+  .footer-brand span { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); font-weight: 300; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .nav { padding: 16px 24px; }
+    .nav-link { display: none; }
+    section, .board-section, .faq-section, .cta-final, .contact-section { padding: 60px 24px; }
+    .page-header { padding: 120px 24px 60px; }
+    .plans-grid, .board-grid, .plan-bottom, .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  .nav-back-dental {
+    font-size: 0.75rem;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26,26,46,0.3);
+    padding-bottom: 1px;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .nav-back-dental:hover { border-bottom-color: var(--navy); opacity: 0.7; }
+
+  :root {
+    --teal: #2A8080;
+    --teal-dark: #1f6060;
+    --gold: #2A8080;
+    --gold-light: #3a9090;
+  }
+  .btn-primary { background: var(--teal) !important; border-color: var(--teal) !important; }
+  .btn-primary:hover { background: var(--teal-dark) !important; }
+  .btn-secondary { border-color: var(--teal) !important; color: var(--teal) !important; }
+  .btn-secondary:hover { background: var(--teal) !important; color: #fff !important; }
+  .plan-badge { background: var(--teal) !important; }
+  .section-label { color: var(--teal) !important; }
+  .hero-eyebrow { color: var(--teal) !important; }
+  .plan-card.featured { border-color: var(--teal) !important; }
+  .plan-card.featured .plan-price { color: var(--teal) !important; }
+  h1 em, h2 em { color: var(--teal) !important; }
+  .plan-includes li::before { color: var(--teal) !important; }
+  .faq-item summary { color: var(--navy); }
+  .faq-item summary:hover { color: var(--teal) !important; }
+  .nav-logo span { color: var(--teal) !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="dental.html" class="nav-logo">Alter <span>CEO</span> · <span style="font-size:0.7em;border:1px solid currentColor;padding:1px 6px;border-radius:2px;vertical-align:middle;">Dental</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back-dental" style="border-bottom-color:rgba(26,26,46,0.3)">Alter CEO →</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════ -->
+<!--         VERSIÓN ESPAÑOLA          -->
+<!-- ══════════════════════════════════ -->
+<div class="version active" id="lang-es">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="dental.html">Alter CEO · Dental</a>
+        <span class="breadcrumb-sep">·</span>
+        <span>Planes</span>
+      </div>
+      <h1>Planes claros.<br><em>Sin letra pequeña.</em></h1>
+      <p class="page-header-sub">Todos los planes incluyen acceso gestionado, confidencialidad total y soporte ante desviaciones del clon. Los precios no incluyen IVA.</p>
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL -->
+  <section>
+    <div class="section-inner">
+      <span class="section-label">Alter CEO · Dental Individual</span>
+      <h2 class="section-title">Un dueño de clínica.<br>Un clon.</h2>
+      <p class="section-subtitle">Para digitalizar el criterio de un dueño de clínica dental que también ejerce como dentista.</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <span class="plan-name">Instalación + Primer año</span>
+          <div class="plan-price">3.000€</div>
+          <span class="plan-period">pago único</span>
+          <p class="plan-desc">El punto de partida. Capturamos cómo gestionas tu clínica y tu equipo, construimos tu perfil y lo dejamos listo para que tu equipo lo consulte cuando tú estás en gabinete.</p>
+          <ul class="plan-includes">
+            <li>Protocolo de entrevista con el dueño de clínica</li>
+            <li>2 sesiones de captura y validación</li>
+            <li>Construcción del perfil decisional completo</li>
+            <li>Configuración y acceso al clon para tu equipo</li>
+            <li>1 año de mantenimiento incluido</li>
+          </ul>
+        </div>
+
+        <div class="plan-card featured">
+          <span class="plan-badge">⭐ Más popular</span>
+          <span class="plan-name">Renovación anual</span>
+          <div class="plan-price">2.400€</div>
+          <span class="plan-period">por año</span>
+          <p class="plan-desc">Mantiene el clon al día con los cambios de tu clínica: nuevo personal, nuevos proveedores, nuevos criterios. La opción que elige la mayoría.</p>
+          <ul class="plan-includes">
+            <li>2 sesiones de actualización al año</li>
+            <li>Procesamiento de nuevos casos y personas</li>
+            <li>Actualización del perfil</li>
+            <li>Soporte continuo</li>
+          </ul>
+        </div>
+
+        <div class="plan-card">
+          <span class="plan-name">Premium</span>
+          <div class="plan-price">4.800€</div>
+          <span class="plan-period">por año</span>
+          <p class="plan-desc">Para clínicas con varios sedes o alta rotación de personal donde el clon necesita actualizarse con más frecuencia.</p>
+          <ul class="plan-includes">
+            <li>4 sesiones de actualización al año</li>
+            <li>Prioridad en cambios urgentes</li>
+            <li>Análisis trimestral del rendimiento del clon</li>
+            <li>Acceso directo para consultas puntuales</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-bottom">
+        <div class="plan-card-wide">
+          <span class="plan-name">Partner Estratégico</span>
+          <div class="plan-price">9.600€</div>
+          <span class="plan-period">por año</span>
+          <p class="plan-desc" style="margin-top:12px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border);">Para el CEO que quiere al creador del clon como consultor activo en su empresa, no solo como proveedor.</p>
+          <ul class="plan-includes">
+            <li>Sesiones de actualización ilimitadas</li>
+            <li>Acceso directo con respuesta en menos de 24h</li>
+            <li>Participación activa en decisiones estratégicas</li>
+            <li>Análisis mensual del clon y evolución del perfil</li>
+          </ul>
+        </div>
+        <div class="plan-card-wide">
+          <span class="plan-name">Actualización puntual</span>
+          <div class="plan-price">900€</div>
+          <span class="plan-period">por sesión · sin compromiso</span>
+          <p class="plan-desc" style="margin-top:12px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border);">Para quien necesita una actualización concreta sin plan anual.</p>
+          <ul class="plan-includes">
+            <li>1 sesión de captura o validación</li>
+            <li>Actualización del clon entregada en 72h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOARD -->
+  <section class="board-section">
+    <div class="section-inner">
+      <span class="section-label">Alter CEO · Board</span>
+      <h2 class="section-title">Todo el equipo directivo.<br>Un solo sistema.</h2>
+      <p class="section-subtitle">Cada directivo tiene su propio clon. La junta responde cuando la decisión lo requiere.</p>
+
+      <div class="board-grid">
+        <div class="board-card">
+          <span class="plan-name">Board Starter</span>
+          <div class="plan-price">7.500€</div>
+          <span class="plan-period">instalación · 5.400€/año · hasta 3 roles</span>
+          <p class="plan-desc" style="margin-top:12px;">Para equipos directivos pequeños que quieren digitalizar los roles clave sin instalar el equipo completo.</p>
+          <ul class="plan-includes">
+            <li>Hasta 3 clones individuales</li>
+            <li>Junta general con perspectiva combinada</li>
+            <li>2 sesiones de actualización por rol al año</li>
+            <li>Descuento del 17% sobre precio individual</li>
+          </ul>
+        </div>
+
+        <div class="board-card featured-b">
+          <span class="plan-badge">⭐ Más popular</span>
+          <span class="plan-name">Board Full</span>
+          <div class="plan-price">18.000€</div>
+          <span class="plan-period">instalación · 12.000€/año · hasta 8 roles</span>
+          <p class="plan-desc" style="margin-top:12px;">El C-suite completo. CEO, COO, CFO, CTO, CMO, CHRO, CLO y CIO, más la junta general.</p>
+          <ul class="plan-includes">
+            <li>Hasta 8 clones individuales</li>
+            <li>Junta general con perspectiva combinada</li>
+            <li>2 sesiones de actualización por rol al año</li>
+            <li>Descuento del 25% sobre precio individual</li>
+            <li>Gestión centralizada de accesos</li>
+          </ul>
+        </div>
+
+        <div class="board-card">
+          <span class="plan-name">Board Enterprise</span>
+          <div class="plan-price">A medida</div>
+          <span class="plan-period">roles ilimitados · junta personalizada</span>
+          <p class="plan-desc" style="margin-top:12px;">Para grandes organizaciones con estructuras directivas complejas o necesidades específicas.</p>
+          <ul class="plan-includes">
+            <li>Número de roles sin límite</li>
+            <li>Junta general personalizada</li>
+            <li>Sesiones de actualización a medida</li>
+            <li>Integración con sistemas internos</li>
+            <li>Soporte dedicado y SLA garantizado</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Board Starter</th>
+              <th>Board Full</th>
+              <th>Board Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Roles incluidos</td><td>Hasta 3</td><td>Hasta 8</td><td>Ilimitados</td></tr>
+            <tr><td>Junta general</td><td>Sí</td><td>Sí</td><td>Personalizada</td></tr>
+            <tr><td>Actualizaciones/rol/año</td><td>2</td><td>2</td><td>A medida</td></tr>
+            <tr><td>Descuento vs. individual</td><td>17%</td><td>25%</td><td>Negociable</td></tr>
+            <tr><td>Gestión centralizada</td><td>No</td><td>Sí</td><td>Sí</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-inner">
+      <span class="section-label">Preguntas frecuentes</span>
+      <h2 class="section-title">Lo que suelen preguntar.</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona la junta general? <span class="faq-icon"></span></button>
+          <div class="faq-a">La junta sintetiza la perspectiva de todos los roles ante una misma decisión. Es útil para evaluar iniciativas estratégicas donde importa el criterio cruzado de varios directivos: qué haría el CEO, qué objetaría el CFO, qué riesgo vería el CLO.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si un directivo abandona la empresa? <span class="faq-icon"></span></button>
+          <div class="faq-a">El clon puede archivarse o reconvertirse para el nuevo directivo en el mismo rol. El proceso de reconversión tiene un descuento del 30% sobre el precio de instalación estándar.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Es seguro compartir el criterio del CEO con este sistema? <span class="faq-icon"></span></button>
+          <div class="faq-a">El perfil decisional es completamente confidencial. Solo accede quien el CEO autoriza explícitamente. Nada se comparte con terceros ni se utiliza fuera del ámbito de la empresa.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda la instalación? <span class="faq-icon"></span></button>
+          <div class="faq-a">El proceso completo suele completarse en 2 a 4 semanas, dependiendo de la disponibilidad del CEO y la complejidad de su estructura de decisión.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Puedo empezar con un plan individual y pasar a Board después? <span class="faq-icon"></span></button>
+          <div class="faq-a">Sí. El plan individual es totalmente compatible con Board. Si decides ampliar, el clon ya construido se integra directamente en la estructura Board sin necesidad de repetir el proceso de captura.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="es-contacto">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title">Hablemos.</h2>
+          <p>Si quieres saber cómo funciona Alter CEO para tu empresa, escríbenos. Sin compromisos, sin presentaciones largas. Una conversación de 20 minutos es suficiente.</p>
+          <p class="contact-detail">Respondemos en menos de 24 horas.</p>
+        </div>
+        <div id="exito-es" style="display:none; padding:32px; background:var(--gray-light); border-left:3px solid var(--gold);">
+          <p style="font-size:1.1rem; color:var(--navy); font-weight:400;">Mensaje recibido. Te respondemos en menos de 24 horas.</p>
+        </div>
+        <form id="form-es" method="POST" action="https://formspree.io/f/xgoppwjg">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label>Empresa <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(opcional)</span></label>
+            <input type="text" name="empresa" placeholder="Tu empresa">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="tu@empresa.com" required>
+          </div>
+          <div class="form-group">
+            <label>Plan de interés <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(opcional)</span></label>
+            <select name="plan">
+              <option value="">Selecciona un plan</option>
+              <option>Instalación + Primer año</option>
+              <option>Renovación anual</option>
+              <option>Premium</option>
+              <option>Partner Estratégico</option>
+              <option>Board Starter</option>
+              <option>Board Full</option>
+              <option>Board Enterprise</option>
+              <option>Todavía no lo sé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>¿Qué te ha traído aquí? <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(opcional)</span></label>
+            <textarea name="mensaje" placeholder="Cuéntanos brevemente tu situación..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar</button>
+          <p class="form-note">Respondemos en menos de 24 horas.</p>
+          <p class="form-note" style="margin-top:8px;">Al enviar este formulario aceptas nuestra <a href="legal.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);">Política de Privacidad</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Tu criterio, siempre disponible.</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Aviso legal</a> · Todos los derechos reservados</span>
+  </footer>
+
+</div><!-- /lang-es -->
+
+
+<!-- ══════════════════════════════════ -->
+<!--         ENGLISH VERSION           -->
+<!-- ══════════════════════════════════ -->
+<div class="version" id="lang-en">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="dental.html">Alter CEO · Dental</a>
+        <span class="breadcrumb-sep">·</span>
+        <span>Plans</span>
+      </div>
+      <h1>Clear plans.<br><em>No fine print.</em></h1>
+      <p class="page-header-sub">All plans include managed access, full confidentiality, and support for any deviations in the clone's responses. Prices exclude VAT.</p>
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL -->
+  <section>
+    <div class="section-inner">
+      <span class="section-label">Alter CEO Individual</span>
+      <h2 class="section-title">One CEO.<br>One clone.</h2>
+      <p class="section-subtitle">To digitize the decision criteria of a single executive.</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <span class="plan-name">Installation + First Year</span>
+          <div class="plan-price">€3,000</div>
+          <span class="plan-period">one-time payment</span>
+          <p class="plan-desc">The starting point. Includes the full capture process, profile construction, and the first year of maintenance at no additional cost.</p>
+          <ul class="plan-includes">
+            <li>Structured CEO interview protocol</li>
+            <li>2 capture and validation sessions</li>
+            <li>Full decision profile construction</li>
+            <li>Clone setup and access</li>
+            <li>1 year of maintenance included</li>
+          </ul>
+        </div>
+
+        <div class="plan-card featured">
+          <span class="plan-badge">⭐ Most popular</span>
+          <span class="plan-name">Annual Renewal</span>
+          <div class="plan-price">€2,400</div>
+          <span class="plan-period">per year</span>
+          <p class="plan-desc">Keeps the clone updated and aligned with the CEO's current reality. The option most clients choose.</p>
+          <ul class="plan-includes">
+            <li>2 update sessions per year</li>
+            <li>New cases and people processing</li>
+            <li>Profile updates</li>
+            <li>Ongoing support</li>
+          </ul>
+        </div>
+
+        <div class="plan-card">
+          <span class="plan-name">Premium</span>
+          <div class="plan-price">€4,800</div>
+          <span class="plan-period">per year</span>
+          <p class="plan-desc">For CEOs with large teams or high-turnover environments where the clone needs more frequent updates.</p>
+          <ul class="plan-includes">
+            <li>4 update sessions per year</li>
+            <li>Priority handling for urgent changes</li>
+            <li>Quarterly clone performance review</li>
+            <li>Direct access for one-off queries</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-bottom">
+        <div class="plan-card-wide">
+          <span class="plan-name">Strategic Partner</span>
+          <div class="plan-price">€9,600</div>
+          <span class="plan-period">per year</span>
+          <p class="plan-desc" style="margin-top:12px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border);">For the CEO who wants the clone's creator as an active consultant in their company, not just a vendor.</p>
+          <ul class="plan-includes">
+            <li>Unlimited update sessions</li>
+            <li>Direct access with response within 24h</li>
+            <li>Active involvement in strategic decisions</li>
+            <li>Monthly clone review and profile evolution</li>
+          </ul>
+        </div>
+        <div class="plan-card-wide">
+          <span class="plan-name">One-off Update</span>
+          <div class="plan-price">€900</div>
+          <span class="plan-period">per session · no commitment</span>
+          <p class="plan-desc" style="margin-top:12px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border);">For those who need a specific update without an annual plan.</p>
+          <ul class="plan-includes">
+            <li>1 capture or validation session</li>
+            <li>Updated clone delivered within 72h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOARD -->
+  <section class="board-section">
+    <div class="section-inner">
+      <span class="section-label">Alter CEO · Board</span>
+      <h2 class="section-title">The entire leadership team.<br>One system.</h2>
+      <p class="section-subtitle">Each executive gets their own clone. The board responds when the decision calls for it.</p>
+
+      <div class="board-grid">
+        <div class="board-card">
+          <span class="plan-name">Board Starter</span>
+          <div class="plan-price">€7,500</div>
+          <span class="plan-period">setup · €5,400/year · up to 3 roles</span>
+          <p class="plan-desc" style="margin-top:12px;">For smaller leadership teams that want to digitize key roles without installing the complete suite.</p>
+          <ul class="plan-includes">
+            <li>Up to 3 individual clones</li>
+            <li>Full board with combined perspective</li>
+            <li>2 update sessions per role per year</li>
+            <li>17% discount vs. individual pricing</li>
+          </ul>
+        </div>
+
+        <div class="board-card featured-b">
+          <span class="plan-badge">⭐ Most popular</span>
+          <span class="plan-name">Board Full</span>
+          <div class="plan-price">€18,000</div>
+          <span class="plan-period">setup · €12,000/year · up to 8 roles</span>
+          <p class="plan-desc" style="margin-top:12px;">The complete C-suite. CEO, COO, CFO, CTO, CMO, CHRO, CLO and CIO, plus a full board.</p>
+          <ul class="plan-includes">
+            <li>Up to 8 individual clones</li>
+            <li>Full board with combined perspective</li>
+            <li>2 update sessions per role per year</li>
+            <li>25% discount vs. individual pricing</li>
+            <li>Centralized access management</li>
+          </ul>
+        </div>
+
+        <div class="board-card">
+          <span class="plan-name">Board Enterprise</span>
+          <div class="plan-price">Custom</div>
+          <span class="plan-period">unlimited roles · custom board</span>
+          <p class="plan-desc" style="margin-top:12px;">For large organizations with complex leadership structures or specific requirements.</p>
+          <ul class="plan-includes">
+            <li>Unlimited roles</li>
+            <li>Custom board configuration</li>
+            <li>Tailored update sessions</li>
+            <li>Integration with internal systems</li>
+            <li>Dedicated support and guaranteed SLA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Board Starter</th>
+              <th>Board Full</th>
+              <th>Board Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Roles included</td><td>Up to 3</td><td>Up to 8</td><td>Unlimited</td></tr>
+            <tr><td>Full board</td><td>Yes</td><td>Yes</td><td>Custom</td></tr>
+            <tr><td>Updates/role/year</td><td>2</td><td>2</td><td>Custom</td></tr>
+            <tr><td>Discount vs. individual</td><td>17%</td><td>25%</td><td>Negotiable</td></tr>
+            <tr><td>Centralized management</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-inner">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">What people usually ask.</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How does the board view work? <span class="faq-icon"></span></button>
+          <div class="faq-a">The board synthesizes the perspective of all roles on the same decision. It's useful for evaluating strategic initiatives where cross-functional judgment matters: what would the CEO do, what would the CFO question, what risk would the CLO flag.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens if an executive leaves the company? <span class="faq-icon"></span></button>
+          <div class="faq-a">The clone can be archived or converted for the new executive in the same role. Conversion is priced at 30% off the standard installation price.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is it safe to share the CEO's decision criteria? <span class="faq-icon"></span></button>
+          <div class="faq-a">The decision profile is completely confidential. Only those explicitly authorized by the CEO can access it. Nothing is shared with third parties or used outside the company's scope.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How long does the installation take? <span class="faq-icon"></span></button>
+          <div class="faq-a">The full process typically takes 2 to 4 weeks, depending on the CEO's availability and the complexity of their decision-making structure.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I start with an individual plan and move to Board later? <span class="faq-icon"></span></button>
+          <div class="faq-a">Yes. The individual plan is fully compatible with Board. If you decide to expand, the clone already built integrates directly into the Board structure without repeating the capture process.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="en-contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">Talk to us.</h2>
+          <p>If you want to know how Alter CEO works for your company, get in touch. No commitment, no long presentations. A 20-minute conversation is enough.</p>
+          <p class="contact-detail">We respond within 24 hours.</p>
+        </div>
+        <div id="exito-en" style="display:none; padding:32px; background:var(--gray-light); border-left:3px solid var(--gold);">
+          <p style="font-size:1.1rem; color:var(--navy); font-weight:400;">Message received. We'll get back to you within 24 hours.</p>
+        </div>
+        <form id="form-en" method="POST" action="https://formspree.io/f/xgoppwjg">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="nombre" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Company <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(optional)</span></label>
+            <input type="text" name="empresa" placeholder="Your company">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>Plan of interest <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(optional)</span></label>
+            <select name="plan">
+              <option value="">Select a plan</option>
+              <option>Installation + First Year</option>
+              <option>Annual Renewal</option>
+              <option>Premium</option>
+              <option>Strategic Partner</option>
+              <option>Board Starter</option>
+              <option>Board Full</option>
+              <option>Board Enterprise</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>What brought you here? <span style="font-weight:300;color:var(--gray);font-size:0.8em;">(optional)</span></label>
+            <textarea name="mensaje" placeholder="Tell us briefly about your situation..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send</button>
+          <p class="form-note">We respond within 24 hours.</p>
+          <p class="form-note" style="margin-top:8px;">By submitting this form you agree to our <a href="legal.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Alter <span>CEO</span> · Your judgment, always available.</span>
+    <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Legal notice</a> · All rights reserved</span>
+  </footer>
+
+</div><!-- /lang-en -->
+
+<script>
+  function handleForm(formId, exitoId, isEn) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = '...';
+      btn.disabled = true;
+      const data = new FormData(form);
+      const errorMsg = isEn ? 'Error, please try again' : 'Error, inténtalo de nuevo';
+      try {
+        const res = await fetch('https://formspree.io/f/xgoppwjg', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById(exitoId).style.display = 'block';
+        } else {
+          btn.textContent = errorMsg;
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = errorMsg;
+        btn.disabled = false;
+      }
+    });
+  }
+  handleForm('form-es', 'exito-es', false);
+  handleForm('form-en', 'exito-en', true);
+
+  function setLang(lang, scroll) {
+    document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('.es-el').forEach(el => el.style.display = lang === 'es' ? '' : 'none');
+    document.querySelectorAll('.en-el').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    localStorage.setItem('alterceo_lang', lang);
+    document.documentElement.lang = lang;
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Al cargar la página, aplicar el idioma guardado o detectar por ancla
+  (function() {
+    const hash = window.location.hash;
+    const hashLang = hash.startsWith('#en-') ? 'en' : hash.startsWith('#es-') ? 'es' : null;
+    const saved = localStorage.getItem('alterceo_lang');
+    const browserLang = navigator.language?.startsWith('es') ? 'es' : 'en';
+    const lang = hashLang || saved || browserLang;
+    if (lang && lang !== 'es') setLang(lang, false);
+  })();
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
