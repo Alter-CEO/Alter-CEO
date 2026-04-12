@@ -214,6 +214,14 @@
     .demo-case.active { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
   }
+
+  .version { display: block; }
+  .version.active { display: block; }
+  .es-ver { display: block; }
+  .en-ver { display: none; }
+  .lang-btn { background: none; border: 1px solid rgba(42,128,128,0.3); color: var(--teal); font-size: 0.72rem; font-family: 'DM Sans', sans-serif; padding: 4px 10px; cursor: pointer; border-radius: 2px; letter-spacing: 0.08em; transition: all 0.2s; }
+  .lang-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .lang-switch { display: flex; gap: 4px; }
 </style>
 </head>
 <body>
@@ -225,13 +233,23 @@
     <span class="vtag">Dental</span>
   </a>
   <div class="nav-right">
-    <a href="#el-problema" class="nav-link">El problema</a>
-    <a href="#como-funciona" class="nav-link">Cómo funciona</a>
-    <a href="#en-accion" class="nav-link">En acción</a>
-    <a href="#contacto" class="nav-link">Contacto</a>
+    <span class="nav-link es-ver"><a href="#el-problema" class="nav-link">El problema</a></span>
+    <span class="nav-link es-ver"><a href="#como-funciona" class="nav-link">Cómo funciona</a></span>
+    <span class="nav-link es-ver"><a href="#en-accion" class="nav-link">En acción</a></span>
+    <span class="nav-link es-ver"><a href="#contacto" class="nav-link">Contacto</a></span>
+    <span class="nav-link en-ver" style="display:none"><a href="#the-problem" class="nav-link">The problem</a></span>
+    <span class="nav-link en-ver" style="display:none"><a href="#how-it-works" class="nav-link">How it works</a></span>
+    <span class="nav-link en-ver" style="display:none"><a href="#in-action" class="nav-link">In action</a></span>
+    <span class="nav-link en-ver" style="display:none"><a href="#contact" class="nav-link">Contact</a></span>
     <a href="index.html" class="nav-back">← Alter CEO</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
+
+<div class="es-ver" id="es-dental">
 
 <!-- HERO -->
 <section class="hero">
@@ -547,6 +565,301 @@
   </div>
 </div>
 
+</div><!-- /es-ver -->
+
+<!-- EN VERSION -->
+<div class="en-ver" id="en-dental">
+
+  <!-- HERO EN -->
+  <section class="hero" id="en-hero">
+    <div class="hero-illustration"><svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+  <!-- Outer ring -->
+  <circle cx="260" cy="260" r="220" stroke="#C9A84C" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="260" cy="260" r="205" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- Cardinal ticks -->
+  <line x1="260" y1="42" x2="260" y2="68" stroke="#C9A84C" stroke-width="2.5" opacity="0.8"/>
+  <line x1="260" y1="452" x2="260" y2="478" stroke="#C9A84C" stroke-width="2.5" opacity="0.8"/>
+  <line x1="42" y1="260" x2="68" y2="260" stroke="#C9A84C" stroke-width="2.5" opacity="0.8"/>
+  <line x1="452" y1="260" x2="478" y2="260" stroke="#C9A84C" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Intercardinal ticks -->
+  <line x1="260" y1="48" x2="260" y2="62" stroke="#C9A84C" stroke-width="1.5" opacity="0.5" transform="rotate(45 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="62" stroke="#C9A84C" stroke-width="1.5" opacity="0.5" transform="rotate(135 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="62" stroke="#C9A84C" stroke-width="1.5" opacity="0.5" transform="rotate(225 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="62" stroke="#C9A84C" stroke-width="1.5" opacity="0.5" transform="rotate(315 260 260)"/>
+
+  <!-- Minor ticks -->
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(15 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(30 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(60 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(75 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(105 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(120 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(150 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(165 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(195 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(210 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(240 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(255 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(285 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(300 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(330 260 260)"/>
+  <line x1="260" y1="48" x2="260" y2="57" stroke="#C9A84C" stroke-width="1" opacity="0.22" transform="rotate(345 260 260)"/>
+
+  <!-- Cardinal letters -->
+  <text x="260" y="96" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" fill="#C9A84C" opacity="0.95" font-weight="600">N</text>
+  <text x="260" y="442" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" fill="#C9A84C" opacity="0.75" font-weight="600">S</text>
+  <text x="436" y="267" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" fill="#C9A84C" opacity="0.75" font-weight="600">E</text>
+  <text x="84" y="267" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" fill="#C9A84C" opacity="0.75" font-weight="600">O</text>
+
+  <!-- Inner ring -->
+  <circle cx="260" cy="260" r="155" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- Crosshairs -->
+  <line x1="260" y1="108" x2="260" y2="195" stroke="#C9A84C" stroke-width="0.5" opacity="0.18"/>
+  <line x1="260" y1="325" x2="260" y2="412" stroke="#C9A84C" stroke-width="0.5" opacity="0.18"/>
+  <line x1="108" y1="260" x2="195" y2="260" stroke="#C9A84C" stroke-width="0.5" opacity="0.18"/>
+  <line x1="325" y1="260" x2="412" y2="260" stroke="#C9A84C" stroke-width="0.5" opacity="0.18"/>
+
+  <!-- Center pivot -->
+  <circle cx="260" cy="260" r="10" fill="#1A2535" stroke="#C9A84C" stroke-width="1.5" opacity="0.9"/>
+  <circle cx="260" cy="260" r="3.5" fill="#C9A84C" opacity="0.9"/>
+
+  <!-- NEEDLE GROUP -->
+  <g class="needle-group">
+
+    <!-- SOUTH: silver diamond, full taper to point at y=390 -->
+    <path d="M254 262 L260 390 L266 262 Z" fill="#8A9BAE" opacity="0.65"/>
+
+    <!-- NORTH: gold diamond — tapers upward like south but stops flat at y=195 -->
+    <!-- Same width at center, same taper angle, just cut off before the point -->
+    <path d="M254 258 L259 195 L261 195 L266 258 Z" fill="#C9A84C" opacity="0.95"/>
+
+    <!-- EXPLORER TIP: from flat cut center (260,195) — same curve, just repositioned -->
+    <path d="M260 195 C260 182 265 172 270 163 C274 155 272 148 266 147 C262 146 259 150 259 155"
+          stroke="#C9A84C" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+    <circle cx="259" cy="155" r="1.8" fill="#C9A84C" opacity="0.95"/>
+
+  </g>
+
+</svg>
+    </div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Alter CEO · Dental — For clinic owners who are also dentists</span>
+      <h1>Your clinic depends on you.<br>Even when you're <em>with a patient.</em></h1>
+      <p class="hero-sub">Your schedule is packed chair to chair. Your clinic needs your head too. Alter CEO · Dental makes your judgment available to your team when you can't be there.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Talk to us</a>
+        <a href="#in-action" class="btn-secondary">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION STRIP EN -->
+  <div class="recognition-strip">
+    <p>Built with and for <strong>clinic owners who practice as dentists</strong> — those who manage between patient and patient.</p>
+    <p>Tested in clinics from <strong>1 to 5 locations</strong>, from 3-person teams to groups with multiple clinical directors.</p>
+    <p><strong>Not designed for the dental sector.</strong> Built inside it.</p>
+  </div>
+
+  <!-- PROBLEM EN -->
+  <section class="problem-section" id="the-problem">
+    <div class="section-inner">
+      <span class="section-label">The problem</span>
+      <h2 class="section-title">You're the best dentist in your clinic.<br>And that's part of the problem.</h2>
+      <div class="problem-cols">
+        <div class="problem-col">
+          <h3>Your schedule has no room for managing.</h3>
+          <p>The chair is full from 9 to 2 and 4 to 8.</p>
+          <p>In between: sterilisation, quotes, calls, team WhatsApps.</p>
+          <p>And the clinic decisions no one can make without you.</p>
+          <p class="problem-remate">Not a lack of time. You're just indispensable for too many things at once.</p>
+        </div>
+        <div class="problem-col">
+          <h3>Your team waits for you, even when they don't have to.</h3>
+          <p>A dental assistant doesn't know whether to accept a case without a confirmed quote.</p>
+          <p>The receptionist doesn't know how to handle the patient threatening to leave.</p>
+          <p>The hygienist doesn't know whether to refer without checking with you.</p>
+          <p class="problem-remate">It's not that they don't know. They don't have your judgment. And you can't interrupt a root canal to give it to them.</p>
+        </div>
+      </div>
+      <p class="problem-resolver">Alter CEO · Dental solves that.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS EN -->
+  <section class="whatis-section" id="how-it-works">
+    <div class="section-inner">
+      <span class="section-label">What it is</span>
+      <h2 class="section-title">Not a protocol. Your judgment.</h2>
+      <p class="whatis-intro">Alter CEO · Dental captures how you think and decide — how you manage your team, suppliers, difficult patients, unpaid bills, hiring — and makes it available for whoever you choose.</p>
+      <p class="whatis-intro">It doesn't answer with generic clinic management protocols.<br><strong>It answers the way you would.</strong></p>
+      <p class="whatis-intro">The difference between a protocol and your judgment is that a protocol was written by someone who doesn't know you. The clone knows you.</p>
+      <div class="whatis-grid">
+        <div class="whatis-card">
+          <span class="whatis-num">01</span>
+          <h4>Your context, not the generic one</h4>
+          <p>It knows your suppliers, your team and your lines you never cross. It doesn't answer from theory — it answers from your reality.</p>
+        </div>
+        <div class="whatis-card">
+          <span class="whatis-num">02</span>
+          <h4>Available when you're not</h4>
+          <p>At 8:45 before opening. At 2:10 after the last patient. On a Saturday if there's an emergency. Judgment doesn't have a chair.</p>
+        </div>
+        <div class="whatis-card">
+          <span class="whatis-num">03</span>
+          <h4>No interruptions</h4>
+          <p>Your team consults before acting. You don't get the WhatsApp mid-filling. The decision comes out right without you having to step in.</p>
+        </div>
+        <div class="whatis-card">
+          <span class="whatis-num">04</span>
+          <h4>Confidential</h4>
+          <p>The profile is yours. Only those you authorise can access it. Nothing leaves your clinic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS EN -->
+  <section class="steps-section">
+    <div class="section-inner">
+      <span class="section-label">The process</span>
+      <h2 class="section-title">Three steps. No endless meetings.</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>Capture your judgment</h3>
+          <p>In two or three sessions with you, we build your decision profile. How you manage the team, what you do when a supplier fails, how you handle a difficult patient, what you never delegate. It's not an interview — it's a conversation with purpose.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>Setup and testing</h3>
+          <p>We configure the clone with your profile and test it with you using real cases from your clinic. You validate every response. If something doesn't fit, we adjust it until it does.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>Your team uses it</h3>
+          <p>Whoever you authorise can consult the clone at any time. No new apps. A chat conversation, just like they'd message you. The difference is the clone always responds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN ACTION EN -->
+  <section class="cases-section" id="in-action">
+    <div class="section-inner">
+      <span class="section-label">In action</span>
+      <h2 class="section-title">This is how the clone responds. With your judgment.</h2>
+      <p class="cases-intro">These conversations are real responses from the clone of a dental clinic owner, built from their own decisions. Names have been changed to protect privacy.</p>
+
+      <div class="cases-tabs">
+        <button class="case-tab active" onclick="showCase(0, this)">Patient who won't pay</button>
+        <button class="case-tab" onclick="showCase(1, this)">Supplier fails</button>
+        <button class="case-tab" onclick="showCase(2, this)">Hiring an assistant</button>
+        <button class="case-tab" onclick="showCase(3, this)">Opening a second location</button>
+      </div>
+
+      <div class="case-wrapper" id="case-0">
+        <div class="chat-mock">
+          <div class="chat-header">
+            <div class="chat-avatar">A</div>
+            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
+          </div>
+          <div class="chat-body">
+            <div class="chat-day">Today</div>
+            <div class="msg user">A patient hasn't paid their orthodontics in 4 months. They owe €1,200. We've sent three reminders and they don't respond.<span class="msg-time">11:32</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Are they still coming to check-ups or have they stopped showing up too?<span class="msg-time">11:32</span></div>
+            <div class="msg user">They haven't come in for two months either.<span class="msg-time">11:33</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Then they're no longer an active patient. Send it to a no-win-no-fee debt recovery firm — they only get paid if they recover the money.<br><br>Flag them in the system as blocked for future appointments until they settle up.<br><br>Don't invest any more internal time on this. €1,200 justifies outsourcing it.<span class="msg-time">11:33</span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <h4>What this case shows</h4>
+          <p>The clone separates the clinical problem from the financial one. If the patient is still coming in, the answer is different. With someone who's disappeared, there's no reason to keep handling it internally.</p>
+        </div>
+      </div>
+
+      <div class="case-wrapper hidden" id="case-1">
+        <div class="chat-mock">
+          <div class="chat-header">
+            <div class="chat-avatar">A</div>
+            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
+          </div>
+          <div class="chat-body">
+            <div class="chat-day">Today</div>
+            <div class="msg user">The anaesthesia supplier hasn't delivered the order and we have surgeries tomorrow. We have stock for today but not enough for tomorrow.<span class="msg-time">16:41</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Call the rep now. Tell them you need a solution by 9am tomorrow. No excuses.<br><br>At the same time, call MedSupply to check if they have stock available today or first thing tomorrow. Without telling your usual supplier.<br><br>Is it OralTech that's failed?<span class="msg-time">16:41</span></div>
+            <div class="msg user">Yes, OralTech.<span class="msg-time">16:42</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Call Carlos. Tell him exactly: "We have surgeries tomorrow and there's no stock. I need a solution by 9 or I'm finding an alternative supplier."<br><br>If he doesn't confirm within 2 hours, activate MedSupply. Don't wait any longer.<span class="msg-time">16:42</span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <h4>What this case shows</h4>
+          <p>The clone knows suppliers by name and who handles the account. It gives the name, the exact message and the deadline. And it has the backup plan ready before plan A fails.</p>
+        </div>
+      </div>
+
+      <div class="case-wrapper hidden" id="case-2">
+        <div class="chat-mock">
+          <div class="chat-header">
+            <div class="chat-avatar">A</div>
+            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
+          </div>
+          <div class="chat-body">
+            <div class="chat-day">Today</div>
+            <div class="msg user">There's a candidate for dental assistant. She has her qualification and two years' experience at a large chain clinic. Should we call her in for an interview?<span class="msg-time">09:15</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Yes, call her in. But bear in mind: chain clinics work with very standardised protocols. She might work well in high-volume flow but struggle to adapt to a more personalised approach.<br><br>In the interview, give her a specific scenario: an anxious patient who walks in without an appointment claiming they're in pain. Ask her what she does. If the answer is pure protocol, she probably won't fit here.<span class="msg-time">09:16</span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <h4>What this case shows</h4>
+          <p>The clone knows that where someone comes from matters as much as their experience. It doesn't give a yes or no — it adds the context that changes the evaluation and a specific question to filter for what matters in this particular clinic.</p>
+        </div>
+      </div>
+
+      <div class="case-wrapper hidden" id="case-3">
+        <div class="chat-mock">
+          <div class="chat-header">
+            <div class="chat-avatar">A</div>
+            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
+          </div>
+          <div class="chat-body">
+            <div class="chat-day">Today</div>
+            <div class="msg user">I've been offered the chance to take over a clinic that's closing in another city. What should I do?<span class="msg-time">22:10</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Do you already have someone who could run it clinically, or would you have to go yourself?<span class="msg-time">22:10</span></div>
+            <div class="msg user">I'd have to go for now.<span class="msg-time">22:11</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>That's the core problem. Not the clinic, not the price — it all depends on you being there. How many days a week could you be there without neglecting this one?<span class="msg-time">22:11</span></div>
+            <div class="msg user">Two days, three at most.<span class="msg-time">22:12</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>With two or three days you can't sustain two locations without a trusted dentist in each one. A second clinic that depends on your physical presence isn't expansion — it's double the work.<br><br>If you do it, you need to know before signing who runs it when you're not there. Do you have anyone in mind?<span class="msg-time">22:12</span></div>
+            <div class="msg user">There's a dentist I worked with years ago who might be interested.<span class="msg-time">22:13</span></div>
+            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>That changes the equation. Talk to him before talking to whoever's offering you the clinic. If he's not available or not interested, don't go any further.<span class="msg-time">22:13</span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <h4>What this case shows</h4>
+          <p>The clone slows down before getting to the numbers. The first question that matters isn't the price — it's whether the model works without the owner being physically present. It gets to the recommendation without skipping steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA EN -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">A 20-minute conversation is enough to know <em>if it makes sense.</em></h2>
+      <p class="cta-sub">No commitment. No long presentations. If it fits, we'll know right away. And if it doesn't, we'll tell you that too.</p>
+      <div class="hero-ctas">
+        <a href="planes_dental.html#en-contact" class="btn-primary">Talk to us</a>
+        <a href="planes_dental.html" class="btn-secondary">See plans</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /en-ver -->
+
 <footer>
   <span class="footer-brand">Alter <span class="t">CEO · Dental</span> &nbsp;·&nbsp; Tu clínica depende de ti. Incluso cuando estás en gabinete.</span>
   <span class="footer-copy">© 2026 Alter CEO · <a href="legal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Aviso legal</a> · Todos los derechos reservados</span>
@@ -563,5 +876,28 @@
   }
 </script>
 
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.es-ver').forEach(function(el) {
+    el.style.display = lang === 'es' ? '' : 'none';
+  });
+  document.querySelectorAll('.en-ver').forEach(function(el) {
+    el.style.display = lang === 'en' ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active', (i === 0 && lang === 'es') || (i === 1 && lang === 'en'));
+  });
+  localStorage.setItem('dental_lang', lang);
+  document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+}
+// Restore language
+(function() {
+  var saved = localStorage.getItem('dental_lang');
+  var browser = navigator.language && navigator.language.startsWith('es') ? 'es' : 'en';
+  var lang = saved || browser;
+  if (lang !== 'es') setLang(lang);
+})();
+</script>
 </body>
 </html>
