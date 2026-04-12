@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alter CEO · Dental — Consulta Decisional</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FFFFFF;
+  --black: #0D0D0D;
+  --navy: #1A1A2E;
+  --teal: #2A8080;
+  --teal-light: #4AABAB;
+  --teal-pale: #EDF4F4;
+  --gold: #C9A84C;
+  --gray: #666666;
+  --gray-light: #F5F4F2;
+  --border: rgba(26,26,46,0.1);
+  --teal-border: rgba(42,128,128,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo .ceo { color: var(--teal); }
+.nav-logo .vtag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--teal);
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid rgba(42,128,128,0.35);
+  border-radius: 2px;
+}
+.nav-back {
+  font-size: 0.75rem;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42,128,128,0.3);
+  padding-bottom: 1px;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+.nav-back:hover { color: var(--navy); border-color: var(--navy); }
+
+/* HERO */
+.hero {
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 48px 60px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -180px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(42,128,128,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+  display: block;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--navy);
+  max-width: 780px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.1s forwards;
+}
+.hero h1 em { font-style: italic; color: var(--teal); }
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--gray);
+  max-width: 520px;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.2s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* MAIN TOOL */
+.tool-section {
+  padding: 80px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* INPUT AREA */
+.input-block { margin-bottom: 64px; }
+.input-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+  display: block;
+}
+.input-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+.decision-textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--navy);
+  background: var(--gray-light);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+  line-height: 1.7;
+}
+.decision-textarea:focus { border-color: var(--teal); background: var(--white); }
+.decision-textarea::placeholder { color: #aaa; }
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: var(--teal);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-submit:hover:not(:disabled) { background: var(--navy); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-submit svg { width: 16px; height: 16px; }
+.input-hint {
+  font-size: 0.82rem;
+  color: #aaa;
+  font-weight: 300;
+}
+
+/* DISCLAIMER */
+.disclaimer-bar {
+  padding: 14px 28px;
+  background: rgba(42,128,128,0.06);
+  border-left: 2px solid var(--teal);
+  font-size: 0.82rem;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 64px;
+  display: none;
+}
+.disclaimer-bar.visible { display: block; }
+
+/* PROFILES INTRO */
+.profiles-intro { display: none; margin-bottom: 40px; }
+.profiles-intro.visible { display: block; }
+.profiles-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+  display: block;
+}
+.profiles-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+/* CLONES GRID */
+.clones-grid {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.clones-grid.visible { display: grid; }
+
+.clone-card {
+  background: var(--teal-pale);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.clone-card.loaded { opacity: 1; transform: translateY(0); }
+.clone-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+}
+.clone-card.conservador::before { background: #5B9E8A; }
+.clone-card.equilibrado::before { background: var(--teal); }
+.clone-card.agresivo::before    { background: #2A5080; }
+
+.clone-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--teal-border);
+}
+.clone-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.clone-badge {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+.clone-card.conservador .clone-badge { background: rgba(91,158,138,0.15); color: #3a7a62; }
+.clone-card.equilibrado .clone-badge { background: rgba(42,128,128,0.15); color: var(--teal); }
+.clone-card.agresivo    .clone-badge { background: rgba(42,80,128,0.12);  color: #1a3a6a; }
+
+.clone-risk { margin-bottom: 24px; }
+.risk-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.risk-bar {
+  height: 2px;
+  background: var(--teal-border);
+  position: relative;
+}
+.risk-fill {
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  transition: width 1s ease;
+}
+.clone-card.conservador .risk-fill { background: #5B9E8A; width: 0; }
+.clone-card.equilibrado .risk-fill { background: var(--teal); width: 0; }
+.clone-card.agresivo    .risk-fill { background: #2A5080; width: 0; }
+
+.clone-response {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+  min-height: 120px;
+}
+.clone-response .thinking {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: 0.4;
+  animation: pulse 1.2s ease infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}
+
+.response-section { margin-bottom: 16px; }
+.response-section-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.response-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.75;
+}
+
+/* CTA BOTTOM */
+.cta-bottom {
+  display: none;
+  margin-top: 64px;
+  padding: 52px 48px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.cta-bottom.visible { display: block; }
+.cta-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--teal);
+}
+.cta-bottom-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 16px;
+  display: block;
+}
+.cta-bottom-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-bottom-title em { font-style: italic; color: var(--teal-light); }
+.cta-bottom-text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+.cta-bottom-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-teal {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--teal);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-teal:hover { background: var(--teal-light); }
+.btn-ghost {
+  display: inline-block;
+  padding: 16px 40px;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+/* RESET */
+.reset-row { display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border); }
+.reset-row.visible { display: flex; }
+.btn-reset {
+  background: none; border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; color: var(--gray);
+  cursor: pointer; letter-spacing: 0.06em;
+  padding: 0; transition: color 0.2s;
+}
+.btn-reset:hover { color: var(--teal); }
+
+/* FOOTER */
+footer {
+  padding: 40px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.08em; color: var(--navy);
+  text-decoration: none; display: flex;
+  align-items: center; gap: 8px;
+}
+.footer-logo .ceo { color: var(--teal); }
+.footer-logo .vtag {
+  font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
+  font-weight: 500; letter-spacing: 0.12em; color: var(--teal);
+  text-transform: uppercase; padding: 2px 7px;
+  border: 1px solid rgba(42,128,128,0.35); border-radius: 2px;
+}
+.footer-text { font-size: 0.78rem; color: #bbb; font-weight: 300; }
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .hero, .tool-section { padding-left: 24px; padding-right: 24px; }
+  .clones-grid { grid-template-columns: 1fr; }
+  .clone-card { padding: 32px 24px; }
+  .cta-bottom { padding: 40px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://www.alter-ceo.com/dental.html" class="nav-logo">
+    Alter <span class="ceo">CEO</span>
+    <span class="vtag">Dental</span>
+  </a>
+  <a href="https://www.alter-ceo.com/dental.html" class="nav-back">← Volver a Alter CEO · Dental</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Consulta decisional gratuita · Clínica dental</span>
+    <h1>Tres perspectivas.<br>Una <em>decisión.</em></h1>
+    <p class="hero-sub">Describe una situación real de tu clínica. Tres perfiles de director dental distintos te responden en segundos. Descuentos, empleados, proveedores, inversiones — cualquier decisión que tengas encima.</p>
+  </div>
+</section>
+
+<div class="tool-section">
+
+  <div class="input-block">
+    <span class="input-label">Tu decisión</span>
+    <h2 class="input-title">¿Qué tienes que decidir en tu clínica?</h2>
+    <textarea
+      class="decision-textarea"
+      id="decisionInput"
+      placeholder="Describe la situación con el máximo detalle posible. Por ejemplo: un paciente pide descuento en un implante de 2.400€ pagado al contado. Una auxiliar lleva dos semanas llegando tarde y ya hemos hablado con ella. Un proveedor de material nos ha fallado en una entrega urgente antes de una cirugía..."
+      rows="6"
+    ></textarea>
+    <div class="submit-row">
+      <button class="btn-submit" id="submitBtn" onclick="analyzeDecision()">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Consultar los tres perfiles
+      </button>
+      <span class="input-hint" id="hintText">Gratuito · Sin registro · Respuesta en segundos</span>
+    </div>
+  </div>
+
+  <div class="disclaimer-bar" id="disclaimerBar">
+    Los perfiles que responden son arquetipos directivos genéricos adaptados al contexto de clínica dental, no clones reales de ningún doctor específico. Alter CEO · Dental construye perfiles personalizados basados en el criterio real del dueño de la clínica. Esta herramienta es una demostración del valor que aporta tener ese criterio capturado y disponible para el equipo.
+  </div>
+
+  <div class="profiles-intro" id="profilesIntro">
+    <span class="profiles-label">Análisis en curso</span>
+    <h2 class="profiles-title">Tres perfiles, tres respuestas.</h2>
+  </div>
+
+  <div class="clones-grid" id="clonesGrid">
+
+    <div class="clone-card conservador" id="card0">
+      <div class="clone-header">
+        <div><div class="clone-name">El Conservador</div></div>
+        <span class="clone-badge">Bajo riesgo</span>
+      </div>
+      <div class="clone-risk">
+        <div class="risk-label">Aversión al riesgo</div>
+        <div class="risk-bar"><div class="risk-fill" id="risk0"></div></div>
+      </div>
+      <div class="clone-response" id="response0">
+        <div class="thinking">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <span>Analizando...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="clone-card equilibrado" id="card1">
+      <div class="clone-header">
+        <div><div class="clone-name">El Equilibrado</div></div>
+        <span class="clone-badge">Riesgo moderado</span>
+      </div>
+      <div class="clone-risk">
+        <div class="risk-label">Aversión al riesgo</div>
+        <div class="risk-bar"><div class="risk-fill" id="risk1"></div></div>
+      </div>
+      <div class="clone-response" id="response1">
+        <div class="thinking">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <span>Analizando...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="clone-card agresivo" id="card2">
+      <div class="clone-header">
+        <div><div class="clone-name">El Agresivo</div></div>
+        <span class="clone-badge">Alto riesgo</span>
+      </div>
+      <div class="clone-risk">
+        <div class="risk-label">Aversión al riesgo</div>
+        <div class="risk-bar"><div class="risk-fill" id="risk2"></div></div>
+      </div>
+      <div class="clone-response" id="response2">
+        <div class="thinking">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <span>Analizando...</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reset-row" id="resetRow">
+    <button class="btn-reset" onclick="resetTool()">← Hacer otra consulta</button>
+  </div>
+
+  <div class="cta-bottom" id="ctaBottom">
+    <span class="cta-bottom-label">¿Con cuál te identificas?</span>
+    <h2 class="cta-bottom-title">Tu clon no sería ninguno de estos.<br><em>Sería el tuyo.</em></h2>
+    <p class="cta-bottom-text">Estos son arquetipos genéricos. Alter CEO · Dental captura el criterio real del dueño de tu clínica — tus límites, tu experiencia con pacientes, tus patrones de decisión — y lo pone disponible para tu equipo en cualquier momento.</p>
+    <div class="cta-bottom-actions">
+      <a href="https://www.alter-ceo.com/planes_dental.html" class="btn-teal">Ver cómo funciona</a>
+      <a href="https://www.alter-ceo.com/planes_dental.html#es-contacto" class="btn-ghost">Hablar con nosotros</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="https://www.alter-ceo.com/dental.html" class="footer-logo">
+    Alter <span class="ceo">CEO</span>
+    <span class="vtag">Dental</span>
+  </a>
+  <span class="footer-text">© 2026 Alter CEO · Tu criterio, siempre disponible.</span>
+</footer>
+
+<script>
+const PROFILES = {
+  conservador: {
+    system: `Eres un director de clínica dental arquetipo con perfil altamente conservador. Tu filosofía de gestión se basa en proteger la reputación clínica, el margen y la estabilidad del equipo antes de buscar crecimiento.
+
+CARACTERÍSTICAS DE TU PERFIL:
+- Proteges el margen y la caja por encima de cualquier oportunidad
+- Nunca aplicas descuentos sin justificación clínica o estratégica clara
+- Prefieres perder un paciente antes que sentar un precedente que erosione precios
+- El protocolo clínico y administrativo es sagrado — las excepciones son la excepción, no la norma
+- En personal: aplicas proceso disciplinario formal antes de cualquier decisión sobre empleados
+- En proveedores: ante un fallo, activas proveedor alternativo inmediatamente y documentas el incidente
+- En inversiones: solo inviertes en equipamiento cuando el retorno está prácticamente garantizado
+- Tus decisiones se basan en hechos y datos, no en intuición o presión del momento
+
+FORMATO DE RESPUESTA:
+Responde siempre en el mismo idioma en que te formulen la pregunta.
+Estructura tu respuesta así:
+Decisión: [tu decisión clara y directa en 1-2 frases]
+Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
+Riesgo si no lo haces: [qué pasa si no sigues esta recomendación]
+Alternativa descartada: [qué haría un perfil más agresivo y por qué tú lo rechazas]
+
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+  },
+  equilibrado: {
+    system: `Eres un director de clínica dental arquetipo con perfil equilibrado y pragmático. Tu filosofía de gestión se basa en analizar cada situación en su contexto clínico y de negocio, buscando el punto de máximo valor con riesgo controlado.
+
+CARACTERÍSTICAS DE TU PERFIL:
+- Analizas cada caso antes de aplicar ninguna regla fija
+- Buscas el equilibrio entre proteger el margen y fidelizar pacientes con potencial real
+- En descuentos: cedes cuando hay justificación estratégica clara (referidor, caso complejo, paciente fidelizado), mantienes cuando no
+- En personal: buscas entender la causa raíz antes de sancionar; distingues entre error puntual y patrón de comportamiento
+- En proveedores: negocias solución primero, cambias de proveedor si la relación no mejora
+- En inversiones: aceptas riesgo moderado si el retorno potencial en pacientes o eficiencia lo justifica
+- Confías en datos pero también en tu lectura de las personas y del caso concreto
+
+FORMATO DE RESPUESTA:
+Responde siempre en el mismo idioma en que te formulen la pregunta.
+Estructura tu respuesta así:
+Decisión: [tu decisión clara y directa en 1-2 frases]
+Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
+Riesgo si no lo haces: [qué pasa si no sigues esta recomendación]
+Matiz importante: [el factor clave que podría cambiar tu decisión si la situación fuera diferente]
+
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+  },
+  agresivo: {
+    system: `Eres un director de clínica dental arquetipo con perfil agresivo y orientado al crecimiento. Tu filosofía de gestión se basa en capturar pacientes, crecer rápido y aceptar riesgo calculado cuando hay potencial.
+
+CARACTERÍSTICAS DE TU PERFIL:
+- El crecimiento de la clínica y la captación de pacientes son tu prioridad número uno
+- Aceptas perder margen a corto plazo si el paciente tiene potencial de tratamientos futuros o es buen referidor
+- Actúas rápido y corriges después si hace falta — el statu quo te incomoda
+- En descuentos: si el paciente tiene potencial real, el descuento es una inversión en captación
+- En personal: eres exigente pero toleras errores si hay iniciativa y ganas; lo que no toleras es la desidia
+- En proveedores: si fallaron, los cambias. No hay segundas oportunidades en algo tan crítico como el material clínico
+- En inversiones: si el equipamiento nuevo te permite hacer más casos o de mayor valor, encuentras la forma de financiarlo
+
+FORMATO DE RESPUESTA:
+Responde siempre en el mismo idioma en que te formulen la pregunta.
+Estructura tu respuesta así:
+Decisión: [tu decisión clara y directa en 1-2 frases]
+Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
+Oportunidad que aprovechas: [qué ganas si tomas esta decisión con decisión]
+Lo que el conservador haría mal: [por qué la cautela excesiva te haría perder en este caso]
+
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+  }
+};
+
+async function callClaude(systemPrompt, userMessage) {
+  const response = await fetch("/api/claude", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1000,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userMessage }]
+    })
+  });
+  const data = await response.json();
+  return data.content[0].text;
+}
+
+function formatResponse(text) {
+  const lines = text.split('\n').filter(l => l.trim());
+  let html = '';
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    const colonIdx = trimmed.indexOf(':');
+    if (colonIdx > 0 && colonIdx < 45) {
+      const label = trimmed.substring(0, colonIdx).replace(/\*/g, '').trim();
+      const content = trimmed.substring(colonIdx + 1).replace(/\*/g, '').trim();
+      if (content) {
+        html += `<div class="response-section">
+          <div class="response-section-label">${label}</div>
+          <div class="response-text">${content}</div>
+        </div>`;
+      }
+    } else {
+      html += `<div class="response-text" style="margin-bottom:12px;">${trimmed.replace(/\*/g, '')}</div>`;
+    }
+  }
+  return html;
+}
+
+async function analyzeDecision() {
+  const input = document.getElementById('decisionInput').value.trim();
+  if (!input || input.length < 20) {
+    document.getElementById('decisionInput').focus();
+    document.getElementById('decisionInput').style.borderColor = '#C0604A';
+    setTimeout(() => { document.getElementById('decisionInput').style.borderColor = ''; }, 2000);
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  document.getElementById('hintText').textContent = 'Consultando los tres perfiles...';
+
+  document.getElementById('disclaimerBar').classList.add('visible');
+  document.getElementById('profilesIntro').classList.add('visible');
+  document.getElementById('clonesGrid').classList.add('visible');
+
+  [0,1,2].forEach(i => {
+    document.getElementById('card' + i).classList.remove('loaded');
+    document.getElementById('response' + i).innerHTML = `<div class="thinking"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Analizando...</span></div>`;
+    document.getElementById('risk' + i).style.width = '0';
+  });
+
+  setTimeout(() => { document.getElementById('card0').classList.add('loaded'); }, 100);
+  setTimeout(() => { document.getElementById('card1').classList.add('loaded'); }, 250);
+  setTimeout(() => { document.getElementById('card2').classList.add('loaded'); }, 400);
+
+  const riskWidths = ['25%', '55%', '85%'];
+  riskWidths.forEach((w, i) => {
+    setTimeout(() => { document.getElementById('risk' + i).style.width = w; }, 600 + i * 150);
+  });
+
+  const profileKeys = ['conservador', 'equilibrado', 'agresivo'];
+  let completed = 0;
+
+  profileKeys.forEach(async (key, i) => {
+    try {
+      const text = await callClaude(PROFILES[key].system, input);
+      document.getElementById('response' + i).innerHTML = formatResponse(text);
+    } catch (e) {
+      document.getElementById('response' + i).innerHTML = '<div class="response-text">Error al conectar. Por favor, inténtalo de nuevo.</div>';
+    }
+    completed++;
+    if (completed === 3) {
+      setTimeout(() => {
+        document.getElementById('ctaBottom').classList.add('visible');
+        document.getElementById('ctaBottom').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 600);
+      btn.disabled = false;
+      document.getElementById('hintText').textContent = 'Análisis completado';
+      document.getElementById('resetRow').classList.add('visible');
+    }
+  });
+}
+
+function resetTool() {
+  document.getElementById('decisionInput').value = '';
+  document.getElementById('disclaimerBar').classList.remove('visible');
+  document.getElementById('profilesIntro').classList.remove('visible');
+  document.getElementById('clonesGrid').classList.remove('visible');
+  document.getElementById('ctaBottom').classList.remove('visible');
+  document.getElementById('resetRow').classList.remove('visible');
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('hintText').textContent = 'Gratuito · Sin registro · Respuesta en segundos';
+  [0,1,2].forEach(i => {
+    document.getElementById('response' + i).innerHTML = `<div class="thinking"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Analizando...</span></div>`;
+    document.getElementById('risk' + i).style.width = '0';
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
