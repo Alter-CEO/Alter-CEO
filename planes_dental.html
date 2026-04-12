@@ -552,14 +552,14 @@
 
   .nav-back-dental {
     font-size: 0.75rem;
-    color: var(--navy);
+    color: var(--teal);
     text-decoration: none;
-    border-bottom: 1px solid rgba(26,26,46,0.3);
+    border-bottom: 1px solid rgba(42,128,128,0.3);
     padding-bottom: 1px;
     letter-spacing: 0.04em;
     transition: all 0.2s;
   }
-  .nav-back-dental:hover { border-bottom-color: var(--navy); opacity: 0.7; }
+  .nav-back-dental:hover { border-bottom-color: var(--teal); opacity: 0.7; }
 
   :root {
     --teal: #2A8080;
@@ -589,7 +589,7 @@
 <nav class="nav">
   <a href="dental.html" class="nav-logo">Alter <span>CEO</span> · <span style="font-size:0.7em;border:1px solid currentColor;padding:1px 6px;border-radius:2px;vertical-align:middle;">Dental</span></a>
   <div class="nav-right">
-    <a href="index.html" class="nav-back-dental" style="border-bottom-color:rgba(26,26,46,0.3)">Alter CEO →</a>
+    <a href="index.html" class="nav-back-dental">← Alter CEO</a>
     <div class="lang-switch">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -705,7 +705,7 @@
           <span class="plan-name">Board Starter</span>
           <div class="plan-price">7.500€</div>
           <span class="plan-period">instalación · 5.400€/año · hasta 3 roles</span>
-          <p class="plan-desc" style="margin-top:12px;">Para equipos directivos pequeños que quieren digitalizar los roles clave sin instalar el equipo completo.</p>
+          <p class="plan-desc" style="margin-top:12px;">Para clínicas que quieren digitalizar los roles clave: dueño clínico más uno o dos especialistas o el administrativo principal.</p>
           <ul class="plan-includes">
             <li>Hasta 3 clones individuales</li>
             <li>Junta general con perspectiva combinada</li>
@@ -719,7 +719,7 @@
           <span class="plan-name">Board Full</span>
           <div class="plan-price">18.000€</div>
           <span class="plan-period">instalación · 12.000€/año · hasta 8 roles</span>
-          <p class="plan-desc" style="margin-top:12px;">El equipo de dirección completo: dueño clínico, director de operaciones, responsable de RRHH, responsable digital y coordinador de laboratorio, más la perspectiva conjunta del grupo.</p>
+          <p class="plan-desc" style="margin-top:12px;">El equipo completo de la clínica: dueño clínico, dentistas especialistas (endodoncia, ortodoncia, cirugía, estética, pediatría), administrativos, coordinador de laboratorio y responsable informático, más la perspectiva conjunta del grupo.</p>
           <ul class="plan-includes">
             <li>Hasta 8 clones individuales</li>
             <li>Junta general con perspectiva combinada</li>
@@ -774,7 +774,7 @@
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona la perspectiva conjunta en Board? <span class="faq-icon"></span></button>
-          <div class="faq-a">El sistema sintetiza el criterio de todos los responsables ante una misma decisión. Útil cuando una decisión afecta a varias áreas de la clínica: qué haría el dueño, qué diría el director de operaciones, qué riesgo vería el responsable legal.</div>
+          <div class="faq-a">El sistema sintetiza el criterio de todos los responsables ante una misma decisión. Útil cuando una decisión afecta a varias áreas de la clínica: qué haría el dueño, qué diría el especialista implicado, qué consideraría el administrativo.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si un miembro clave del equipo deja la clínica? <span class="faq-icon"></span></button>
@@ -963,7 +963,7 @@
           <span class="plan-name">Board Starter</span>
           <div class="plan-price">€7,500</div>
           <span class="plan-period">setup · €5,400/year · up to 3 roles</span>
-          <p class="plan-desc" style="margin-top:12px;">For groups of 2 or 3 clinics that want to digitize the key roles without covering the full structure.</p>
+          <p class="plan-desc" style="margin-top:12px;">For clinics that want to digitize the key roles: clinical owner plus one or two specialists or the main administrative lead.</p>
           <ul class="plan-includes">
             <li>Up to 3 individual clones</li>
             <li>Full board with combined perspective</li>
@@ -977,7 +977,7 @@
           <span class="plan-name">Board Full</span>
           <div class="plan-price">€18,000</div>
           <span class="plan-period">setup · €12,000/year · up to 8 roles</span>
-          <p class="plan-desc" style="margin-top:12px;">The complete management team: clinical owner, operations director, HR lead, digital manager and lab coordinator, plus the combined group perspective.</p>
+          <p class="plan-desc" style="margin-top:12px;">The complete clinic team: clinical owner, specialist dentists (endodontics, orthodontics, surgery, aesthetics, paediatrics), administrative staff, lab coordinator and IT lead, plus the combined group perspective.</p>
           <ul class="plan-includes">
             <li>Up to 8 individual clones</li>
             <li>Full board with combined perspective</li>
@@ -1032,7 +1032,7 @@
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">How does the combined view work in Board? <span class="faq-icon"></span></button>
-          <div class="faq-a">The system combines the criteria of all key roles on the same decision. Useful when a decision affects multiple areas of the clinic: what would the owner do, what would the operations lead say, what risk would the legal lead flag.</div>
+          <div class="faq-a">The system combines the criteria of all key roles on the same decision. Useful when a decision affects multiple areas of the clinic: what would the owner do, what would the specialist involved say, what would the administrative lead consider.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">What happens if a key team member leaves the clinic? <span class="faq-icon"></span></button>
