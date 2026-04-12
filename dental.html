@@ -219,6 +219,10 @@
   .version.active { display: block; }
   .es-ver { display: block; }
   .en-ver { display: none; }
+  body.lang-en .es-ver { display: none !important; }
+  body.lang-en .en-ver { display: block !important; }
+  body.lang-es .es-ver { display: block !important; }
+  body.lang-es .en-ver { display: none !important; }
   .lang-btn { background: none; border: 1px solid rgba(42,128,128,0.3); color: var(--teal); font-size: 0.72rem; font-family: 'DM Sans', sans-serif; padding: 4px 10px; cursor: pointer; border-radius: 2px; letter-spacing: 0.08em; transition: all 0.2s; }
   .lang-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
   .lang-switch { display: flex; gap: 4px; }
@@ -568,10 +572,9 @@
 </div><!-- /es-ver -->
 
 <!-- EN VERSION -->
-<div class="en-ver" id="en-dental">
+<div class="en-ver" id="en-dental" style="display:none;">
 
-  <!-- HERO EN -->
-  <section class="hero" id="en-hero">
+  <section class="hero">
     <div class="hero-illustration"><svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" fill="none">
 
   <!-- Outer ring -->
@@ -645,102 +648,99 @@
 
   </g>
 
-</svg>
-    </div>
+</svg></div>
     <div class="hero-inner">
       <span class="hero-eyebrow">Alter CEO · Dental — For clinic owners who are also dentists</span>
       <h1>Your clinic depends on you.<br>Even when you're <em>with a patient.</em></h1>
       <p class="hero-sub">Your schedule is packed chair to chair. Your clinic needs your head too. Alter CEO · Dental makes your judgment available to your team when you can't be there.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Talk to us</a>
-        <a href="#in-action" class="btn-secondary">See how it works</a>
+        <a href="#en-contact" class="btn-primary">Talk to us</a>
+        <a href="#en-action" class="btn-outline">See how it works</a>
       </div>
     </div>
   </section>
 
-  <!-- RECOGNITION STRIP EN -->
-  <div class="recognition-strip">
-    <p>Built with and for <strong>clinic owners who practice as dentists</strong> — those who manage between patient and patient.</p>
-    <p>Tested in clinics from <strong>1 to 5 locations</strong>, from 3-person teams to groups with multiple clinical directors.</p>
-    <p><strong>Not designed for the dental sector.</strong> Built inside it.</p>
+  <div class="recognition">
+    <div class="recognition-inner">
+      <div class="rec-item"><p>Built with and for <strong>clinic owners who practice as dentists</strong> — those who manage between patient and patient.</p></div>
+      <div class="rec-item"><p>Tested in clinics from <strong>1 to 5 locations</strong>, from 3-person teams to groups with multiple clinical directors.</p></div>
+      <div class="rec-item"><p><strong>Not designed for the dental sector.</strong> Built inside it.</p></div>
+    </div>
   </div>
 
-  <!-- PROBLEM EN -->
-  <section class="problem-section" id="the-problem">
+  <section class="problem" id="en-problem">
     <div class="section-inner">
       <span class="section-label">The problem</span>
-      <h2 class="section-title">You're the best dentist in your clinic.<br>And that's part of the problem.</h2>
-      <div class="problem-cols">
-        <div class="problem-col">
+      <h2 class="section-title">You're the best dentist<br>in your clinic.<br>And that's part of the problem.</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
           <h3>Your schedule has no room for managing.</h3>
-          <p>The chair is full from 9 to 2 and 4 to 8.</p>
-          <p>In between: sterilisation, quotes, calls, team WhatsApps.</p>
-          <p>And the clinic decisions no one can make without you.</p>
-          <p class="problem-remate">Not a lack of time. You're just indispensable for too many things at once.</p>
+          <p class="pfact">The chair is full from 9 to 2 and 4 to 8.</p>
+          <p class="pfact">In between: sterilisation, quotes, calls, team WhatsApps.</p>
+          <p class="pfact">And the clinic decisions no one can make without you.</p>
+          <p class="paccent">Not a lack of time. You're just indispensable for too many things at once.</p>
         </div>
-        <div class="problem-col">
+        <div class="problem-card">
           <h3>Your team waits for you, even when they don't have to.</h3>
-          <p>A dental assistant doesn't know whether to accept a case without a confirmed quote.</p>
-          <p>The receptionist doesn't know how to handle the patient threatening to leave.</p>
-          <p>The hygienist doesn't know whether to refer without checking with you.</p>
-          <p class="problem-remate">It's not that they don't know. They don't have your judgment. And you can't interrupt a root canal to give it to them.</p>
+          <p class="pfact">A dental assistant doesn't know whether to accept a case without a confirmed quote.</p>
+          <p class="pfact">The receptionist doesn't know how to handle the patient threatening to leave.</p>
+          <p class="pfact">The hygienist doesn't know whether to refer without checking with you.</p>
+          <p class="paccent">It's not that they don't know. They don't have your judgment. And you can't interrupt a root canal to give it to them.</p>
         </div>
       </div>
-      <p class="problem-resolver">Alter CEO · Dental solves that.</p>
+      <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--navy);margin-top:48px;font-style:italic;">Alter CEO · Dental solves that.</p>
     </div>
   </section>
 
-  <!-- WHAT IT IS EN -->
-  <section class="whatis-section" id="how-it-works">
+  <section id="en-what">
     <div class="section-inner">
       <span class="section-label">What it is</span>
-      <h2 class="section-title">Not a protocol. Your judgment.</h2>
-      <p class="whatis-intro">Alter CEO · Dental captures how you think and decide — how you manage your team, suppliers, difficult patients, unpaid bills, hiring — and makes it available for whoever you choose.</p>
-      <p class="whatis-intro">It doesn't answer with generic clinic management protocols.<br><strong>It answers the way you would.</strong></p>
-      <p class="whatis-intro">The difference between a protocol and your judgment is that a protocol was written by someone who doesn't know you. The clone knows you.</p>
+      <h2 class="section-title">Not a protocol.<br>Your judgment.</h2>
       <div class="whatis-grid">
-        <div class="whatis-card">
-          <span class="whatis-num">01</span>
-          <h4>Your context, not the generic one</h4>
-          <p>It knows your suppliers, your team and your lines you never cross. It doesn't answer from theory — it answers from your reality.</p>
+        <div class="whatis-text">
+          <p>Alter CEO · Dental captures how you think and decide — how you manage your team, suppliers, difficult patients, unpaid bills, hiring — and makes it available for whoever you choose.</p>
+          <p>It doesn't answer with generic clinic management protocols.<br><strong>It answers the way you would.</strong></p>
+          <p class="whatis-aside">The difference between a protocol and your judgment is that a protocol was written by someone who doesn't know you. The clone knows you.</p>
         </div>
-        <div class="whatis-card">
-          <span class="whatis-num">02</span>
-          <h4>Available when you're not</h4>
-          <p>At 8:45 before opening. At 2:10 after the last patient. On a Saturday if there's an emergency. Judgment doesn't have a chair.</p>
-        </div>
-        <div class="whatis-card">
-          <span class="whatis-num">03</span>
-          <h4>No interruptions</h4>
-          <p>Your team consults before acting. You don't get the WhatsApp mid-filling. The decision comes out right without you having to step in.</p>
-        </div>
-        <div class="whatis-card">
-          <span class="whatis-num">04</span>
-          <h4>Confidential</h4>
-          <p>The profile is yours. Only those you authorise can access it. Nothing leaves your clinic.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div><h4>Your context, not the generic one</h4><p>It knows your suppliers, your team and your lines you never cross. It doesn't answer from theory — it answers from your reality.</p></div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div><h4>Available when you're not</h4><p>At 8:45 before opening. At 2:10 after the last patient. On a Saturday if there's an emergency. Judgment doesn't have a chair.</p></div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div><h4>No interruptions</h4><p>Your team consults before acting. You don't get the WhatsApp mid-filling. The decision comes out right without you having to step in.</p></div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">04</span>
+            <div><h4>Confidential</h4><p>The profile is yours. Only those you authorise can access it. Nothing leaves your clinic.</p></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STEPS EN -->
-  <section class="steps-section">
+  <section class="howitworks" id="en-how">
     <div class="section-inner">
       <span class="section-label">The process</span>
-      <h2 class="section-title">Three steps. No endless meetings.</h2>
+      <h2 class="section-title">Three steps.<br>No endless meetings.</h2>
       <div class="steps">
         <div class="step">
-          <span class="step-num">01</span>
+          <div class="step-num">01</div>
           <h3>Capture your judgment</h3>
-          <p>In two or three sessions with you, we build your decision profile. How you manage the team, what you do when a supplier fails, how you handle a difficult patient, what you never delegate. It's not an interview — it's a conversation with purpose.</p>
+          <p>In two or three sessions with you, we build your decision profile. How you manage the team, what you do when a supplier fails, how you handle a difficult patient, what you never delegate. Not an interview — a conversation with purpose.</p>
         </div>
         <div class="step">
-          <span class="step-num">02</span>
+          <div class="step-num">02</div>
           <h3>Setup and testing</h3>
           <p>We configure the clone with your profile and test it with you using real cases from your clinic. You validate every response. If something doesn't fit, we adjust it until it does.</p>
         </div>
         <div class="step">
-          <span class="step-num">03</span>
+          <div class="step-num">03</div>
           <h3>Your team uses it</h3>
           <p>Whoever you authorise can consult the clone at any time. No new apps. A chat conversation, just like they'd message you. The difference is the clone always responds.</p>
         </div>
@@ -748,115 +748,81 @@
     </div>
   </section>
 
-  <!-- IN ACTION EN -->
-  <section class="cases-section" id="in-action">
+  <section id="en-action" style="background:var(--white);">
     <div class="section-inner">
       <span class="section-label">In action</span>
-      <h2 class="section-title">This is how the clone responds. With your judgment.</h2>
-      <p class="cases-intro">These conversations are real responses from the clone of a dental clinic owner, built from their own decisions. Names have been changed to protect privacy.</p>
-
-      <div class="cases-tabs">
-        <button class="case-tab active" onclick="showCase(0, this)">Patient who won't pay</button>
-        <button class="case-tab" onclick="showCase(1, this)">Supplier fails</button>
-        <button class="case-tab" onclick="showCase(2, this)">Hiring an assistant</button>
-        <button class="case-tab" onclick="showCase(3, this)">Opening a second location</button>
+      <h2 class="section-title">This is how the clone responds.<br>With your judgment.</h2>
+      <p class="demo-note">These conversations are real responses from the clone of a dental clinic owner, built from their own decisions. Names have been changed to protect privacy.</p>
+      <div class="demo-tabs">
+        <button class="demo-tab active" onclick="showCaseEn(0)">Patient who won't pay</button>
+        <button class="demo-tab" onclick="showCaseEn(1)">Supplier fails</button>
+        <button class="demo-tab" onclick="showCaseEn(2)">Hiring an assistant</button>
+        <button class="demo-tab" onclick="showCaseEn(3)">Opening a second location</button>
       </div>
-
-      <div class="case-wrapper" id="case-0">
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-avatar">A</div>
-            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
-          </div>
-          <div class="chat-body">
-            <div class="chat-day">Today</div>
-            <div class="msg user">A patient hasn't paid their orthodontics in 4 months. They owe €1,200. We've sent three reminders and they don't respond.<span class="msg-time">11:32</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Are they still coming to check-ups or have they stopped showing up too?<span class="msg-time">11:32</span></div>
-            <div class="msg user">They haven't come in for two months either.<span class="msg-time">11:33</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Then they're no longer an active patient. Send it to a no-win-no-fee debt recovery firm — they only get paid if they recover the money.<br><br>Flag them in the system as blocked for future appointments until they settle up.<br><br>Don't invest any more internal time on this. €1,200 justifies outsourcing it.<span class="msg-time">11:33</span></div>
+      <div class="demo-case active" id="en-case-0">
+        <div class="chat-phone"><div class="chat-hd"><div class="chat-av">A</div><div><h4>Alter CEO · Dental</h4><p>Your clinic depends on you. Even when you're with a patient.</p></div></div>
+          <div class="chat-msgs">
+            <div class="msg-day">Today</div>
+            <div class="msg-u"><div class="bubble">A patient hasn't paid their orthodontics in 4 months. They owe €1,200. We've sent three reminders and they don't respond.</div><div class="msg-time">11:32</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Are they still coming to check-ups or have they stopped showing up too?</div><div class="msg-time">11:32</div></div>
+            <div class="msg-u"><div class="bubble">They haven't come in for two months either.</div><div class="msg-time">11:33</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Then they're no longer an active patient. Send it to a no-win-no-fee debt recovery firm — they only get paid if they recover the money.<br><br>Flag them as blocked for future appointments until they settle up.<br><br>Don't invest any more internal time on this. €1,200 justifies outsourcing it.</div><div class="msg-time">11:33</div></div>
           </div>
         </div>
-        <div class="case-meta">
-          <h4>What this case shows</h4>
-          <p>The clone separates the clinical problem from the financial one. If the patient is still coming in, the answer is different. With someone who's disappeared, there's no reason to keep handling it internally.</p>
-        </div>
+        <div class="demo-insight"><h4>What this case shows</h4><p>The clone separates the clinical problem from the financial one. If the patient is still coming in, the answer is different. With someone who's disappeared, there's no reason to keep handling it internally.</p></div>
       </div>
-
-      <div class="case-wrapper hidden" id="case-1">
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-avatar">A</div>
-            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
-          </div>
-          <div class="chat-body">
-            <div class="chat-day">Today</div>
-            <div class="msg user">The anaesthesia supplier hasn't delivered the order and we have surgeries tomorrow. We have stock for today but not enough for tomorrow.<span class="msg-time">16:41</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Call the rep now. Tell them you need a solution by 9am tomorrow. No excuses.<br><br>At the same time, call MedSupply to check if they have stock available today or first thing tomorrow. Without telling your usual supplier.<br><br>Is it OralTech that's failed?<span class="msg-time">16:41</span></div>
-            <div class="msg user">Yes, OralTech.<span class="msg-time">16:42</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Call Carlos. Tell him exactly: "We have surgeries tomorrow and there's no stock. I need a solution by 9 or I'm finding an alternative supplier."<br><br>If he doesn't confirm within 2 hours, activate MedSupply. Don't wait any longer.<span class="msg-time">16:42</span></div>
+      <div class="demo-case" id="en-case-1">
+        <div class="chat-phone"><div class="chat-hd"><div class="chat-av">A</div><div><h4>Alter CEO · Dental</h4><p>Your clinic depends on you. Even when you're with a patient.</p></div></div>
+          <div class="chat-msgs">
+            <div class="msg-day">Today</div>
+            <div class="msg-u"><div class="bubble">The anaesthesia supplier hasn't delivered and we have surgeries tomorrow. Stock for today but not enough for tomorrow.</div><div class="msg-time">16:41</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Call the rep now. Tell them you need a solution by 9am tomorrow. No excuses.<br><br>In parallel, call MedSupply to check if they have stock today or first thing tomorrow. Without telling your usual supplier.<br><br>Is it OralTech that's failed?</div><div class="msg-time">16:41</div></div>
+            <div class="msg-u"><div class="bubble">Yes, OralTech.</div><div class="msg-time">16:42</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Call Carlos. Tell him exactly: "We have surgeries tomorrow and there's no stock. I need a solution by 9 or I'm finding an alternative supplier."<br><br>If he doesn't confirm within 2 hours, activate MedSupply. Don't wait any longer.</div><div class="msg-time">16:42</div></div>
           </div>
         </div>
-        <div class="case-meta">
-          <h4>What this case shows</h4>
-          <p>The clone knows suppliers by name and who handles the account. It gives the name, the exact message and the deadline. And it has the backup plan ready before plan A fails.</p>
-        </div>
+        <div class="demo-insight"><h4>What this case shows</h4><p>The clone knows suppliers by name and who handles the account. It gives the name, the exact message and the deadline. And it has the backup plan ready before plan A fails.</p></div>
       </div>
-
-      <div class="case-wrapper hidden" id="case-2">
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-avatar">A</div>
-            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
-          </div>
-          <div class="chat-body">
-            <div class="chat-day">Today</div>
-            <div class="msg user">There's a candidate for dental assistant. She has her qualification and two years' experience at a large chain clinic. Should we call her in for an interview?<span class="msg-time">09:15</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Yes, call her in. But bear in mind: chain clinics work with very standardised protocols. She might work well in high-volume flow but struggle to adapt to a more personalised approach.<br><br>In the interview, give her a specific scenario: an anxious patient who walks in without an appointment claiming they're in pain. Ask her what she does. If the answer is pure protocol, she probably won't fit here.<span class="msg-time">09:16</span></div>
+      <div class="demo-case" id="en-case-2">
+        <div class="chat-phone"><div class="chat-hd"><div class="chat-av">A</div><div><h4>Alter CEO · Dental</h4><p>Your clinic depends on you. Even when you're with a patient.</p></div></div>
+          <div class="chat-msgs">
+            <div class="msg-day">Today</div>
+            <div class="msg-u"><div class="bubble">There's a candidate for dental assistant. Two years at a large chain clinic. Should we call her in for an interview?</div><div class="msg-time">09:15</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Yes, call her in. But bear in mind: chain clinics work with very standardised protocols. She might work well in high-volume flow but struggle to adapt to a more personalised approach.<br><br>In the interview, give her a scenario: an anxious patient who walks in without an appointment claiming pain. Ask her what she does. If the answer is pure protocol, she probably won't fit here.</div><div class="msg-time">09:16</div></div>
           </div>
         </div>
-        <div class="case-meta">
-          <h4>What this case shows</h4>
-          <p>The clone knows that where someone comes from matters as much as their experience. It doesn't give a yes or no — it adds the context that changes the evaluation and a specific question to filter for what matters in this particular clinic.</p>
-        </div>
+        <div class="demo-insight"><h4>What this case shows</h4><p>The clone knows that where someone comes from matters as much as their experience. It doesn't give a yes or no — it adds the context that changes the evaluation and a specific question to filter for what matters in this clinic.</p></div>
       </div>
-
-      <div class="case-wrapper hidden" id="case-3">
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-avatar">A</div>
-            <div><div class="chat-name">Alter CEO · Dental</div><div class="chat-sub">Your clinic depends on you. Even when you're with a patient.</div></div>
-          </div>
-          <div class="chat-body">
-            <div class="chat-day">Today</div>
-            <div class="msg user">I've been offered the chance to take over a clinic that's closing in another city. What should I do?<span class="msg-time">22:10</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>Do you already have someone who could run it clinically, or would you have to go yourself?<span class="msg-time">22:10</span></div>
-            <div class="msg user">I'd have to go for now.<span class="msg-time">22:11</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>That's the core problem. Not the clinic, not the price — it all depends on you being there. How many days a week could you be there without neglecting this one?<span class="msg-time">22:11</span></div>
-            <div class="msg user">Two days, three at most.<span class="msg-time">22:12</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>With two or three days you can't sustain two locations without a trusted dentist in each one. A second clinic that depends on your physical presence isn't expansion — it's double the work.<br><br>If you do it, you need to know before signing who runs it when you're not there. Do you have anyone in mind?<span class="msg-time">22:12</span></div>
-            <div class="msg user">There's a dentist I worked with years ago who might be interested.<span class="msg-time">22:13</span></div>
-            <div class="msg clone"><span class="clone-label">Alter CEO · Dental</span>That changes the equation. Talk to him before talking to whoever's offering you the clinic. If he's not available or not interested, don't go any further.<span class="msg-time">22:13</span></div>
+      <div class="demo-case" id="en-case-3">
+        <div class="chat-phone"><div class="chat-hd"><div class="chat-av">A</div><div><h4>Alter CEO · Dental</h4><p>Your clinic depends on you. Even when you're with a patient.</p></div></div>
+          <div class="chat-msgs">
+            <div class="msg-day">Today</div>
+            <div class="msg-u"><div class="bubble">I've been offered the chance to take over a clinic that's closing in another city. What should I do?</div><div class="msg-time">22:10</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">Do you already have someone who could run it clinically, or would you have to go yourself?</div><div class="msg-time">22:10</div></div>
+            <div class="msg-u"><div class="bubble">I'd have to go for now.</div><div class="msg-time">22:11</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">That's the core problem. Not the clinic, not the price — it all depends on you being there. How many days a week could you be there without neglecting this one?</div><div class="msg-time">22:11</div></div>
+            <div class="msg-u"><div class="bubble">Two days, three at most.</div><div class="msg-time">22:12</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">With two or three days you can't sustain two locations without a trusted dentist in each one. A second clinic that depends on your physical presence isn't expansion — it's double the work.<br><br>If you do it, you need to know before signing who runs it when you're not there. Do you have anyone in mind?</div><div class="msg-time">22:12</div></div>
+            <div class="msg-u"><div class="bubble">There's a dentist I worked with years ago who might be interested.</div><div class="msg-time">22:13</div></div>
+            <div class="msg-c"><div class="msg-sender">Alter CEO · Dental</div><div class="bubble">That changes the equation. Talk to him before talking to whoever's offering you the clinic. If he's not available or not interested, don't go any further.</div><div class="msg-time">22:13</div></div>
           </div>
         </div>
-        <div class="case-meta">
-          <h4>What this case shows</h4>
-          <p>The clone slows down before getting to the numbers. The first question that matters isn't the price — it's whether the model works without the owner being physically present. It gets to the recommendation without skipping steps.</p>
-        </div>
+        <div class="demo-insight"><h4>What this case shows</h4><p>The clone slows down before getting to the numbers. The first question isn't the price — it's whether the model works without the owner being physically present.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA EN -->
-  <section class="cta-section" id="contact">
+  <div class="cta-dark" id="en-contact">
     <div class="section-inner">
-      <h2 class="section-title">A 20-minute conversation is enough to know <em>if it makes sense.</em></h2>
-      <p class="cta-sub">No commitment. No long presentations. If it fits, we'll know right away. And if it doesn't, we'll tell you that too.</p>
-      <div class="hero-ctas">
-        <a href="planes_dental.html#en-contact" class="btn-primary">Talk to us</a>
-        <a href="planes_dental.html" class="btn-secondary">See plans</a>
+      <span class="section-label">Ready to start?</span>
+      <h2>A 20-minute conversation<br>is enough to know<br><em>if it makes sense.</em></h2>
+      <p>No commitment. No long presentations. If it fits, we'll know right away. And if it doesn't, we'll tell you that too.</p>
+      <div class="cta-buttons">
+        <a href="planes_dental.html#en-contact" class="btn-ghost">Talk to us</a>
+        <a href="planes_dental.html" class="btn-dim">See plans</a>
       </div>
     </div>
-  </section>
+  </div>
 
 </div><!-- /en-ver -->
 
@@ -878,25 +844,42 @@
 
 
 <script>
+
+function showCaseEn(i) {
+  document.querySelectorAll('#en-action .demo-case').forEach(function(el, j) {
+    el.classList.toggle('active', j === i);
+  });
+  document.querySelectorAll('#en-action .demo-tab').forEach(function(btn, j) {
+    btn.classList.toggle('active', j === i);
+  });
+}
+
 function setLang(lang) {
-  document.querySelectorAll('.es-ver').forEach(function(el) {
-    el.style.display = lang === 'es' ? '' : 'none';
-  });
-  document.querySelectorAll('.en-ver').forEach(function(el) {
-    el.style.display = lang === 'en' ? '' : 'none';
-  });
+  // Toggle body class for CSS-based switching
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.body.classList.toggle('lang-es', lang !== 'en');
   document.querySelectorAll('.lang-btn').forEach(function(btn, i) {
     btn.classList.toggle('active', (i === 0 && lang === 'es') || (i === 1 && lang === 'en'));
   });
   localStorage.setItem('dental_lang', lang);
-  document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+  // Smooth scroll to top like index
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 // Restore language
 (function() {
   var saved = localStorage.getItem('dental_lang');
   var browser = navigator.language && navigator.language.startsWith('es') ? 'es' : 'en';
   var lang = saved || browser;
-  if (lang !== 'es') setLang(lang);
+  // Apply language without scroll on init
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.body.classList.toggle('lang-es', lang !== 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+  // Update button state
+  document.querySelectorAll('.lang-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active', (i === 0 && lang === 'es') || (i === 1 && lang === 'en'));
+  });
+  localStorage.setItem('dental_lang', lang);
 })();
 </script>
 </body>
