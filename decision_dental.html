@@ -488,100 +488,6 @@ footer {
   .cta-bottom { padding: 40px 24px; }
   footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
 }
-
-  .email-capture {
-    display: none;
-    margin-top: 48px;
-    padding: 40px 48px;
-    background: var(--teal-pale);
-    border-left: 3px solid var(--teal);
-  }
-  .email-capture.visible { display: block; }
-  .email-capture-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 12px;
-    display: block;
-  }
-  .email-capture-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-weight: 300;
-    color: var(--navy);
-    line-height: 1.15;
-    margin-bottom: 8px;
-  }
-  .email-capture-sub {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--gray);
-    line-height: 1.7;
-    margin-bottom: 24px;
-    max-width: 480px;
-  }
-  .email-row {
-    display: flex;
-    gap: 0;
-    max-width: 480px;
-  }
-  .email-input {
-    flex: 1;
-    padding: 14px 20px;
-    border: 1px solid var(--teal-border);
-    border-right: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--navy);
-    background: var(--white);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .email-input:focus { border-color: var(--teal); }
-  .email-input::placeholder { color: #bbb; }
-  .btn-email {
-    padding: 14px 28px;
-    background: var(--teal);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-    white-space: nowrap;
-  }
-  .btn-email:hover { background: var(--navy); }
-  .email-skip {
-    margin-top: 12px;
-    font-size: 0.8rem;
-    color: #bbb;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    font-family: 'DM Sans', sans-serif;
-    transition: color 0.2s;
-  }
-  .email-skip:hover { color: var(--gray); }
-  .email-success {
-    display: none;
-    font-size: 0.92rem;
-    color: var(--navy);
-    font-weight: 300;
-    line-height: 1.7;
-    padding: 12px 0;
-  }
-  @media (max-width: 768px) {
-    .email-capture { padding: 32px 24px; }
-    .email-row { flex-direction: column; }
-    .email-input { border-right: 1px solid var(--teal-border); border-bottom: none; }
-  }
 </style>
 </head>
 <body>
@@ -692,23 +598,6 @@ footer {
     <button class="btn-reset" onclick="resetTool()">← Hacer otra consulta</button>
   </div>
 
-
-  <div class="email-capture" id="emailCapture">
-    <span class="email-capture-label">Antes de continuar</span>
-    <h3 class="email-capture-title">¿Quieres que construyamos el tuyo?</h3>
-    <p class="email-capture-sub">Tu clon no sería ninguno de estos — sería el del dueño de tu clínica. Déjanos tu email y te contamos cómo funciona.</p>
-    <div id="emailForm">
-      <div class="email-row">
-        <input type="email" class="email-input" id="emailInput" placeholder="tu@email.com" />
-        <button class="btn-email" onclick="submitEmail()">Quiero el mío</button>
-      </div>
-      <button class="email-skip" onclick="skipEmail()">Ahora no, ver más →</button>
-    </div>
-    <div class="email-success" id="emailSuccess">
-      Perfecto, te escribimos pronto. Mientras tanto puedes ver cómo funciona o hablar directamente con nosotros.
-    </div>
-  </div>
-
   <div class="cta-bottom" id="ctaBottom">
     <span class="cta-bottom-label">¿Con cuál te identificas?</span>
     <h2 class="cta-bottom-title">Tu clon no sería ninguno de estos.<br><em>Sería el tuyo.</em></h2>
@@ -752,7 +641,13 @@ Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
 Riesgo si no lo haces: [qué pasa si no sigues esta recomendación]
 Alternativa descartada: [qué haría un perfil más agresivo y por qué tú lo rechazas]
 
-Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.
+
+ANTES DE RESPONDER — DOS COMPROBACIONES:
+
+1. Si la pregunta es un chiste, una adivinanza o claramente no es una situación de negocio real, responde con: "Esto parece más un chiste que una decisión empresarial. Si hay una situación real detrás, cuéntamela con más detalle." Sin más.
+
+2. Si la situación es ambigua o te falta el dato clave, no respondas todavía. Haz una sola pregunta concreta — la más importante — antes de dar tu recomendación.`
   },
   equilibrado: {
     system: `Eres un director de clínica dental arquetipo con perfil equilibrado y pragmático. Tu filosofía de gestión se basa en analizar cada situación en su contexto clínico y de negocio, buscando el punto de máximo valor con riesgo controlado.
@@ -774,7 +669,13 @@ Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
 Riesgo si no lo haces: [qué pasa si no sigues esta recomendación]
 Matiz importante: [el factor clave que podría cambiar tu decisión si la situación fuera diferente]
 
-Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.
+
+ANTES DE RESPONDER — DOS COMPROBACIONES:
+
+1. Si la pregunta es un chiste, una adivinanza o claramente no es una situación de negocio real, responde con: "Esto parece más un chiste que una decisión empresarial. Si hay una situación real detrás, cuéntamela con más detalle." Sin más.
+
+2. Si la situación es ambigua o te falta el dato clave, no respondas todavía. Haz una sola pregunta concreta — la más importante — antes de dar tu recomendación.`
   },
   agresivo: {
     system: `Eres un director de clínica dental arquetipo con perfil agresivo y orientado al crecimiento. Tu filosofía de gestión se basa en capturar pacientes, crecer rápido y aceptar riesgo calculado cuando hay potencial.
@@ -796,7 +697,13 @@ Criterio aplicado: [las 2-3 reglas o principios que has usado para decidir]
 Oportunidad que aprovechas: [qué ganas si tomas esta decisión con decisión]
 Lo que el conservador haría mal: [por qué la cautela excesiva te haría perder en este caso]
 
-Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.`
+Sé directo y conciso. Máximo 200 palabras. No des rodeos. No uses asteriscos ni markdown.
+
+ANTES DE RESPONDER — DOS COMPROBACIONES:
+
+1. Si la pregunta es un chiste, una adivinanza o claramente no es una situación de negocio real, responde con: "Esto parece más un chiste que una decisión empresarial. Si hay una situación real detrás, cuéntamela con más detalle." Sin más.
+
+2. Si la situación es ambigua o te falta el dato clave, no respondas todavía. Haz una sola pregunta concreta — la más importante — antes de dar tu recomendación.`
   }
 };
 
@@ -899,10 +806,6 @@ function resetTool() {
   document.getElementById('profilesIntro').classList.remove('visible');
   document.getElementById('clonesGrid').classList.remove('visible');
   document.getElementById('ctaBottom').classList.remove('visible');
-  document.getElementById('emailCapture').classList.remove('visible');
-  document.getElementById('emailForm').style.display = '';
-  document.getElementById('emailSuccess').style.display = 'none';
-  document.getElementById('emailInput').value = '';
   document.getElementById('resetRow').classList.remove('visible');
   document.getElementById('submitBtn').disabled = false;
   document.getElementById('hintText').textContent = 'Gratuito · Sin registro · Respuesta en segundos';
